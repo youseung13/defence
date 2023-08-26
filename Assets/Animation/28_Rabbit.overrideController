@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 28_Rabbit
+  m_Controller: {fileID: 9100000, guid: 40dfe6a5998b19d42ac2de2300faf5ff, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: dc08f26721ef9dd46a7235c540e49854, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 257dc7f6a979eef449ebbb5bbf71e5e0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4f32f4bc6aec8914486c30a562d29d75, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5ceaf1ef3b37f35499ad01e125ecb98b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 86513eff656e22040b590fd4fea4753d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0177953c28f19fe48a6c899e0cf989db, type: 2}

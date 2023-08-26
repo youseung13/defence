@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 3_Charged Salamander
+  m_Controller: {fileID: 9100000, guid: 40dfe6a5998b19d42ac2de2300faf5ff, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: dc08f26721ef9dd46a7235c540e49854, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 05aacc1ed11890e4db50627df4ac00a1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4f32f4bc6aec8914486c30a562d29d75, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8fa455a3aa1864c48a998bfa42fb1170, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 86513eff656e22040b590fd4fea4753d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6c27d35b8b8003349b9393149c9247ee, type: 2}
