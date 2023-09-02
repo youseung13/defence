@@ -376,7 +376,7 @@ public class CharacterStats : MonoBehaviour
         _damage = Mathf.RoundToInt(_damage * 1.15f);
 
         currentHealth -= _damage;
-        Debug.Log("current health is" + currentHealth);
+      //  Debug.Log("current health is" + currentHealth);
 
         if(onHealthChanged != null)
             onHealthChanged();

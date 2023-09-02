@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_AnimationTriggers : MonoBehaviour
 {
-    private Enemy_Melee enemy => GetComponentInParent<Enemy_Melee>();
+     private Enemy enemy => GetComponentInParent<Enemy>();
 
     private void AnimationTrigger()
     {
@@ -13,18 +13,21 @@ public class Enemy_AnimationTriggers : MonoBehaviour
 
     private void AttackTrigger()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
+       Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
 
-        foreach(var hit in colliders)
-        {
-           // if(hit.GetComponent<Player2>() != null)
-            {
-               // PlayerStats target = hit.GetComponent<PlayerStats>();
-                //enemy.stats.DoDamage(target);
+       foreach(var hit in colliders)
+       {
+           if(hit.GetComponent<Castle>() != null)
+           {
+              Debug.Log("enemy attack");
+               Castle target = hit.GetComponent<Castle>();
+               enemy.stats.DoDamage(target);
 
             }
+
+            
        
-        }
+       }
     }
 
      private void Dietrigger()

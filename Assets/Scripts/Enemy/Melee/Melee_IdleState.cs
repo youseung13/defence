@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_IdleState : EnemyState
+public class Melee_IdleState : EnemyState
 {
     private Enemy_Melee enemy;
 
-    public Enemy_IdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Melee _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public Melee_IdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Melee _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         enemy = _enemy;
     }
 
     public override void Enter()
-    {   Debug.Log("idle state is start");
+    { //  Debug.Log("idle state is start");
         base.Enter();
         //enemy.SetZeroVelocity();
 

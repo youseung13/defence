@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 324629290898843955, guid: 36590b9b54bfd3d46b054e38baa85bb8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.43
+      value: -13.85
       objectReference: {fileID: 0}
     - target: {fileID: 324629290898843955, guid: 36590b9b54bfd3d46b054e38baa85bb8,
         type: 3}
@@ -197,6 +197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pl_ninja
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662627087018034237, guid: 36590b9b54bfd3d46b054e38baa85bb8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6390869102039394385, guid: 36590b9b54bfd3d46b054e38baa85bb8,
         type: 3}
@@ -1751,7 +1756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571708638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: 6, z: 0}
+  m_LocalPosition: {x: 15.51, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 652907401}
@@ -1769,6 +1774,7 @@ GameObject:
   - component: {fileID: 574536044}
   - component: {fileID: 574536046}
   - component: {fileID: 574536047}
+  - component: {fileID: 574536048}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -1835,7 +1841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574536043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.6, y: 0.1, z: 0}
+  m_LocalPosition: {x: -14, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1879,6 +1885,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbb6d2990c7d0541a83919957b0d1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
+  agility:
+    baseValue: 0
+    modifiers: 
+  intelligence:
+    baseValue: 0
+    modifiers: 
+  vitality:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 0
+    modifiers: 
+  critChance:
+    baseValue: 0
+    modifiers: 
+  critPower:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 500
+    modifiers: 
+  health:
+    baseValue: 0
+    modifiers: 
+  armor:
+    baseValue: 0
+    modifiers: 
+  evasion:
+    baseValue: 0
+    modifiers: 
+  magicResistance:
+    baseValue: 0
+    modifiers: 
+  fireDamage:
+    baseValue: 0
+    modifiers: 
+  iceDamage:
+    baseValue: 0
+    modifiers: 
+  lightingDamage:
+    baseValue: 0
+    modifiers: 
+  isIgnited: 0
+  isChilled: 0
+  isShocked: 0
+  ailmentsDuration: 0
+  shockStrikePrefab: {fileID: 0}
+  currentHealth: 0
+--- !u!50 &574536048
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574536043}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &618314700
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2477,7 @@ PrefabInstance:
     - target: {fileID: 5677225258550470026, guid: a57ff66fd46cad54b93ddd175ba4da9f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.5
+      value: -13.85
       objectReference: {fileID: 0}
     - target: {fileID: 5677225258550470026, guid: a57ff66fd46cad54b93ddd175ba4da9f,
         type: 3}
@@ -2450,6 +2528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pl_magician
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677225258550470031, guid: a57ff66fd46cad54b93ddd175ba4da9f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a57ff66fd46cad54b93ddd175ba4da9f, type: 3}
@@ -3444,6 +3527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: w
       objectReference: {fileID: 0}
+    - target: {fileID: 2343384871730763362, guid: 6661595d4eb79c844919d8468c18aa1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2343384871730763367, guid: 6661595d4eb79c844919d8468c18aa1f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3452,7 +3540,7 @@ PrefabInstance:
     - target: {fileID: 2343384871730763367, guid: 6661595d4eb79c844919d8468c18aa1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.46
+      value: -13.85
       objectReference: {fileID: 0}
     - target: {fileID: 2343384871730763367, guid: 6661595d4eb79c844919d8468c18aa1f,
         type: 3}
@@ -4375,7 +4463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498426640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: -6, z: 0}
+  m_LocalPosition: {x: 15.51, y: -3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 652907401}

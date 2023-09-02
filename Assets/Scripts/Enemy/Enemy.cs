@@ -178,11 +178,15 @@ public class Enemy : MonoBehaviour
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Enemy : Entity
 {
+      public CapsuleCollider2D cd {get; private set;}
    // [SerializeField]protected LayerMask whatIsPlayer;
 
+  
     [Header("Stunned info")]
     public float stunDuration;
    // public Vector2 stunDirction;
@@ -246,6 +250,8 @@ public class Enemy : Entity
 
    protected override void Awake() 
    {
+
+      cd = GetComponent<CapsuleCollider2D>();
      target = GameManager.instance.target;
         base.Awake();
         stateMachine = new EnemyStateMachine();
@@ -256,6 +262,9 @@ public class Enemy : Entity
    
         
    }
+
+ 
+  
 
    protected override void Update() 
    {

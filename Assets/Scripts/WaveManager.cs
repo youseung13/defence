@@ -9,7 +9,7 @@ public class WaveManager : MonoBehaviour
      public Vector2  startY;
     public Vector2  endY;
 
-    public float spawntimer = 1f;
+    public float spawntimer = 1.5f;
 
     private void Awake()
      {

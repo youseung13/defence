@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyStats : CharacterStats
 {
+      [SerializeField]
+    private Slider HPbar;
+     private Coroutine hpBarCoroutine;
+
     private Enemy enemy;
    // private ItemDrop myDropSystem;
 
@@ -19,9 +24,17 @@ public class EnemyStats : CharacterStats
         base.Start();
 
         enemy = GetComponent<Enemy>();
+
+          if(HPbar !=null)
+        {
+        HPbar.value = (float)currentHealth/ (float)GetMaxHealthValue();
+        HPbar.gameObject.SetActive(false);
+        }
        // myDropSystem = GetComponent<ItemDrop>();
 
     }
+
+   
 
     protected void ApplyLevelModifiers()
     {
@@ -59,6 +72,22 @@ public class EnemyStats : CharacterStats
         {
             base.TakeDamage(_damage);
 
+            
+         if (HPbar.gameObject.activeSelf)
+        {
+            if (hpBarCoroutine != null)
+            {
+                StopCoroutine(hpBarCoroutine);
+            }
+            hpBarCoroutine = StartCoroutine(ShowAndHideHPBar());
+        }
+        else // HP 바가 비활성화된 경우 바로 코루틴 시작
+        {
+            hpBarCoroutine = StartCoroutine(ShowAndHideHPBar());
+        }
+
+        UpdateHPBar();
+
         }
 
     protected override void Die()
@@ -74,6 +103,21 @@ public class EnemyStats : CharacterStats
       {
         base.Initialize();
       }
+
+      
+    private void UpdateHPBar()
+    {
+       HPbar.value = (float)currentHealth/ (float)GetMaxHealthValue();
+    }
+
+  
+
+    IEnumerator ShowAndHideHPBar()
+    {
+        HPbar.gameObject.SetActive(true); // HP 바 활성화
+        yield return new WaitForSeconds(0.8f); // 일정 시간 대기
+        HPbar.gameObject.SetActive(false); // HP 바 비활성화
+    }
         
 }
 

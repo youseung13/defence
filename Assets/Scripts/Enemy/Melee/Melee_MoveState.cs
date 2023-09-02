@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_MoveState : EnemyState
+public class Melee_MoveState : EnemyState
 {
     private Enemy_Melee enemy;
 
-    public Enemy_MoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Melee _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public Melee_MoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Melee _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = _enemy;
     }
 
     public override void Enter()
     {
-        Debug.Log("move state is start");
+       // Debug.Log("move state is start");
         base.Enter();
     }
 

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_DeathState : EnemyState
+public class Range_DeathState : EnemyState
 {
-    private Enemy_Melee enemy;
-    public Enemy_DeathState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,Enemy_Melee _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    private Enemy_Range enemy;
+    public Range_DeathState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName,Enemy_Range _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         enemy = _enemy;
     }
