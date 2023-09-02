@@ -1,0 +1,1100 @@
+fileFormatVersion: 2
+guid: d0d8c283f0dafce4492d682ba898ea8b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3326708660427712052
+    second: erodaxia summary_0
+  - first:
+      213: 1265435486714182222
+    second: erodaxia summary_1
+  - first:
+      213: 430973648778858926
+    second: erodaxia summary_2
+  - first:
+      213: 5584478232160003002
+    second: erodaxia summary_3
+  - first:
+      213: -2884672516957165125
+    second: erodaxia summary_4
+  - first:
+      213: -5018390188435185707
+    second: erodaxia summary_5
+  - first:
+      213: -4259830683282870034
+    second: erodaxia summary_6
+  - first:
+      213: -7411447912283354068
+    second: erodaxia summary_7
+  - first:
+      213: 1388273534301318995
+    second: erodaxia summary_8
+  - first:
+      213: 3323884078793470396
+    second: erodaxia summary_9
+  - first:
+      213: 6465339267050465324
+    second: erodaxia summary_10
+  - first:
+      213: -4983735756489473459
+    second: erodaxia summary_11
+  - first:
+      213: -8761926445393012902
+    second: erodaxia summary_12
+  - first:
+      213: 2549820607545517087
+    second: erodaxia summary_13
+  - first:
+      213: -1459236871734787238
+    second: erodaxia summary_14
+  - first:
+      213: 4368202796296452869
+    second: erodaxia summary_15
+  - first:
+      213: -1868145350453066763
+    second: erodaxia summary_16
+  - first:
+      213: -6170943689366753474
+    second: erodaxia summary_17
+  - first:
+      213: 1555918079979679232
+    second: erodaxia summary_18
+  - first:
+      213: 7108096903861013299
+    second: erodaxia summary_19
+  - first:
+      213: -1879967506951496986
+    second: erodaxia summary_20
+  - first:
+      213: -3291952007959738666
+    second: erodaxia summary_21
+  - first:
+      213: -2022058539320369063
+    second: erodaxia summary_22
+  - first:
+      213: -5781521145557865123
+    second: erodaxia summary_23
+  - first:
+      213: -4283301475277222001
+    second: erodaxia summary_24
+  - first:
+      213: 2701351804265697137
+    second: erodaxia summary_25
+  - first:
+      213: 5355541980634722277
+    second: erodaxia summary_26
+  - first:
+      213: 4867785646930513060
+    second: erodaxia summary_27
+  - first:
+      213: -3627728579645993470
+    second: erodaxia summary_28
+  - first:
+      213: 6366453007545666268
+    second: erodaxia summary_29
+  - first:
+      213: -180967364663636764
+    second: erodaxia summary_30
+  - first:
+      213: 6465896648050187448
+    second: erodaxia summary_31
+  - first:
+      213: -9089778463539359279
+    second: erodaxia summary_32
+  - first:
+      213: -6452520507310076144
+    second: erodaxia summary_33
+  - first:
+      213: 4702279696207850455
+    second: erodaxia summary_34
+  - first:
+      213: -2430001347777513582
+    second: erodaxia summary_35
+  - first:
+      213: 6690581895693906795
+    second: erodaxia summary_36
+  - first:
+      213: 8485408578362714099
+    second: erodaxia summary_37
+  - first:
+      213: -5804613186301205022
+    second: erodaxia summary_38
+  - first:
+      213: -5072107232442443995
+    second: erodaxia summary_39
+  - first:
+      213: 608688566497408210
+    second: erodaxia summary_40
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 18
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: erodaxia summary_0
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 97
+        width: 53
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc99df7591825d1d0800000000000000
+      internalID: -3326708660427712052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 357
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ab5cfdedabf8110800000000000000
+      internalID: 1265435486714182222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_2
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 357
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1940b00402bf500800000000000000
+      internalID: 430973648778858926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 356
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab36cc34d5d008d40800000000000000
+      internalID: 5584478232160003002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_4
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 358
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9af6521a597f7d0800000000000000
+      internalID: -2884672516957165125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_5
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 356
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dfd30256b81b5ab0800000000000000
+      internalID: -5018390188435185707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_6
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 357
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee07d97209a02e4c0800000000000000
+      internalID: -4259830683282870034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_7
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 312
+        width: 120
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c4a0d246f352990800000000000000
+      internalID: -7411447912283354068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 276
+        width: 61
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f2b1f8c63244310800000000000000
+      internalID: 1388273534301318995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_9
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 315
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1bf0f75fec02e20800000000000000
+      internalID: 3323884078793470396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_10
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 315
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c286decfecf79b950800000000000000
+      internalID: 6465339267050465324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_11
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 314
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4248040cb636dab0800000000000000
+      internalID: -4983735756489473459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_12
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 313
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a579f321252676680800000000000000
+      internalID: -8761926445393012902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_13
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 265
+        width: 120
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14a8b14558c26320800000000000000
+      internalID: 2549820607545517087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 244
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a538819ebcfbfbbe0800000000000000
+      internalID: -1459236871734787238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_15
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 243
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50b3e1cac49fe9c30800000000000000
+      internalID: 4368202796296452869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_16
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 196
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3827d93b30316e0800000000000000
+      internalID: -1868145350453066763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_17
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 244
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f2b5ad8676c5aa0800000000000000
+      internalID: -6170943689366753474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_18
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 236
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00eebc8004bb79510800000000000000
+      internalID: 1555918079979679232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_19
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 242
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b80b7497805a260800000000000000
+      internalID: 7108096903861013299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_20
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 96
+        width: 50
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea11ee438309e5e0800000000000000
+      internalID: -1879967506951496986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_21
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 193
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d60deb1713a052d0800000000000000
+      internalID: -3291952007959738666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_22
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 153
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950a3c8c87430f3e0800000000000000
+      internalID: -2022058539320369063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_23
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 153
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d2d916629e3cfa0800000000000000
+      internalID: -5781521145557865123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_24
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 153
+        width: 58
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fc13c8008ae84c0800000000000000
+      internalID: -4283301475277222001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_25
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 151
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f0e9257212d7520800000000000000
+      internalID: 2701351804265697137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_26
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 150
+        width: 51
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efac677e05b25a40800000000000000
+      internalID: 5355541980634722277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_27
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 148
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acc9085149dd8340800000000000000
+      internalID: 4867785646930513060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_28
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 96
+        width: 120
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e0bacc318b7adc0800000000000000
+      internalID: -3627728579645993470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_29
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 98
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda0af9874f2a5850800000000000000
+      internalID: 6366453007545666268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_30
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 96
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec094104231d7df0800000000000000
+      internalID: -180967364663636764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_31
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 96
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc9b6d5eba7bb950800000000000000
+      internalID: 6465896648050187448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_32
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 95
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d19db9a5ae9ad180800000000000000
+      internalID: -9089778463539359279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_33
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 50
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f0cd719ca0476a0800000000000000
+      internalID: -6452520507310076144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_34
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 50
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db200f487ad14140800000000000000
+      internalID: 4702279696207850455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_35
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 50
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297300e16a6e64ed0800000000000000
+      internalID: -2430001347777513582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_36
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 49
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63be7139c8b9dc50800000000000000
+      internalID: 6690581895693906795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_37
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 6
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7ac57f42a32c570800000000000000
+      internalID: 8485408578362714099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_38
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 5
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5e7fbaf0fd17fa0800000000000000
+      internalID: -5804613186301205022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_39
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 5
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527149368514c99b0800000000000000
+      internalID: -5072107232442443995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erodaxia summary_40
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 5
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d47be8b60f727800800000000000000
+      internalID: 608688566497408210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

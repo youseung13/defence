@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-   public Transform target;
+    public PlayerStats pl;
+   public GameObject target;
    public Transform oritarget;
    public CapsuleCollider2D cr;
 
    public float speed = 0.7f;
-   public int damage;
+ 
+   public Stat damage;
 
    public Vector3 dir;
    public Vector3 targetPos;
+   public Vector3 lastKnownPosition;
 
    private void Awake() {
       cr= GetComponent<CapsuleCollider2D>();
-      oritarget = target;
+    //  oritarget = target;
    }
 
+/*
    void Update()
     {
       if (target != null)
         {
             targetPos = target.position;
         }
+
+        if(!target.gameObject.activeSelf)
+        {
+            oritarget =target;
+          
+        }
+        
         
         dir = targetPos - this.transform.position;
         dir = dir.normalized * speed * Time.deltaTime;
@@ -37,18 +48,36 @@ public class Missile : MonoBehaviour
 
         this.transform.rotation = Quaternion.Euler(0,0,
             angle);
-      
-      
-        if (Vector3.Distance(this.transform.position,
-                targetPos) < 0.5f)
+
+        if(oritarget != null && oritarget != target)
+        Destroy(gameObject);
+
+    }
+*/
+    private void Update()
+    {
+        if (target != null)
         {
-            if (target != null)
-            {
-                target.GetComponent<Enemy>().TakeDamage(damage);
-            }
-            DestroyImmediate(this.gameObject);
+            Vector3 moveDirection = (lastKnownPosition - transform.position).normalized;
+            transform.position += moveDirection * speed * Time.deltaTime;
+
+              float angle = Quaternion.FromToRotation
+            (Vector3.right, dir).eulerAngles.z;
+
+        this.transform.rotation = Quaternion.Euler(0,0,
+            angle);
         }
 
+        if(Vector2.Distance(transform.position,lastKnownPosition) < 0.2f)
+        Destroy(gameObject);
+    }
+     public void SetTarget(Transform newTarget)
+    {
+     
+         //this.target.transform= newTarget;
+        lastKnownPosition = newTarget.position;
+     
+       
     }
 
     private void Attack(int _damage)
@@ -56,17 +85,17 @@ public class Missile : MonoBehaviour
 
     }
 
-/*
+
     private void OnTriggerEnter2D(Collider2D hit) 
     {
-      if(hit.GetComponent<Enemy>() != null)
+      if(hit.GetComponent<EnemyStats>() != null)
       {
-         if(hit.gameObject.transform == target)
-         {
-            hit.GetComponent<Enemy>().TakeDamage(damage);
+            EnemyStats targetstat = hit.GetComponent<EnemyStats>();
+
+            pl.DoDamage(targetstat);
+            //hit.GetComponent<Enemy>().Die();
             Destroy(gameObject);
-         }
       }
     }
-*/
+
 }

@@ -99,10 +99,11 @@ MonoBehaviour:
   target: {fileID: 0}
   oritarget: {fileID: 0}
   cr: {fileID: 0}
-  speed: 20
+  speed: 30
   damage: 4
   dir: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
+  lastKnownPosition: {x: 0, y: 0, z: 0}
 --- !u!70 &-2959837786606115840
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

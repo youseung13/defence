@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 2343384871730763367}
   - component: {fileID: 2343384871730763360}
   - component: {fileID: 2343384871730763361}
+  - component: {fileID: 417604233177836124}
   - component: {fileID: 2828592083802953922}
+  - component: {fileID: 266475994488484488}
   m_Layer: 0
   m_Name: pl_Archer
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2343384871730763362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.73, y: 2.49, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,6 +105,69 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &417604233177836124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343384871730763362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef883cb0a07b99948acb7ddc54aecbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
+  agility:
+    baseValue: 0
+    modifiers: 
+  intelligence:
+    baseValue: 0
+    modifiers: 
+  vitality:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  critChance:
+    baseValue: 0
+    modifiers: 
+  critPower:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 0
+    modifiers: 
+  health:
+    baseValue: 0
+    modifiers: 
+  armor:
+    baseValue: 0
+    modifiers: 
+  evasion:
+    baseValue: 0
+    modifiers: 
+  magicResistance:
+    baseValue: 0
+    modifiers: 
+  fireDamage:
+    baseValue: 0
+    modifiers: 
+  iceDamage:
+    baseValue: 0
+    modifiers: 
+  lightingDamage:
+    baseValue: 0
+    modifiers: 
+  isIgnited: 0
+  isChilled: 0
+  isShocked: 0
+  ailmentsDuration: 4
+  shockStrikePrefab: {fileID: 0}
+  currentHealth: 0
 --- !u!114 &2828592083802953922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,3 +189,24 @@ MonoBehaviour:
   target: {fileID: 0}
   minDistance: 9999
   bullet: {fileID: 3331668172448504085, guid: 4c07d7b71f5c91149ac3ec1ad8286ced, type: 3}
+  targetEnemy: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  detectInterval: 0
+--- !u!114 &266475994488484488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343384871730763362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562d01d1754361e4ab2731320015cb53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMat: {fileID: 0}
+  chillColor: []
+  ignitedColor: []
+  shockColor: []

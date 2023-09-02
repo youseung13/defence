@@ -18,7 +18,7 @@ public class UI_HPBar : MonoBehaviour
     }
     void Start()
     {
-        HPbar.value = (float)enemy.hp/ (float)enemy.maxhp;
+      //  HPbar.value = (float)enemy.hp/ (float)enemy.maxhp;
     }
 
     // Update is called once per frame
@@ -29,6 +29,6 @@ public class UI_HPBar : MonoBehaviour
 
     private void UpdateHPbar()
     {
-        HPbar.value = (float)enemy.hp/ (float)enemy.maxhp;
+      //  HPbar.value = (float)enemy.hp/ (float)enemy.maxhp;
     }
 }

@@ -84,21 +84,27 @@ public class GameManager : MonoBehaviour
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Info")]
-    public List<GameObject> aliveenemy;
-    public int count;
-    public int coin;
-    public int life;
+
+
+   // [Header("Info")]
+   // public List<GameObject> aliveenemy;
+  //  public int count;
+ //   public int coin;
+   // public int life;
+    public PoolManager pool;
+    public WaveManager waveM;
+    public Castle castle;
+     public GameObject target;
 
 
 
     public static GameManager instance;
 
-    public bool isPause;
+    //public bool isPause;
 
-    private int level ;
-    private int Maxlevel;
-    private int nowwave ;
+   // private int level ;
+   // private int Maxlevel;
+  //  private int nowwave ;
 
 
 
@@ -111,7 +117,7 @@ public class GameManager : MonoBehaviour
     //생성될 위치
     public Transform startPos;
 
-    public Transform[] target;
+  //  public Transform[] target;
 
     public GameObject buttons;
     public GameObject Pausebutton;
@@ -121,6 +127,8 @@ public class GameManager : MonoBehaviour
 
 
     public float time ;
+     public float timer ;
+    public bool gamestart;
     public float timeBetweenSpawn ;
     public bool initspawn = false;
 
@@ -139,10 +147,21 @@ public class GameManager : MonoBehaviour
     private void Awake() 
     {
        timeBetweenSpawn = 0.35f;
+
+          // 이미 인스턴스가 존재하면 현재 인스턴스를 파괴하고 새로 생성하지 않습니다.
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this; // 현재 인스턴스를 설정합니다.
+        DontDestroyOnLoad(gameObject); // 씬 전환 시에도 인스턴스가 유지되도록 설정합니다.
         
     }
     void Start()
     {
+        /*
         stageTime = stageTimeMax;
         instance = this;
         level = 1;
@@ -163,12 +182,39 @@ public class GameManager : MonoBehaviour
         Debug.Log("data  2 = " + data[1].level + "/" + data[1].MaxEnemy + "/" + data[1].MaxIndex  +"/" + data[1].wave );
         Debug.Log("data  = " + level + "/" + count  +"/" + nowwave + "/" + Random.Range(0,data[level-1].MaxIndex));
 
-
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
+         timeText.text = string.Format("Time : {0:N1}", timer);
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            gamestart = true;
+
+        }
+        if(gamestart)
+        {
+            timer += Time.deltaTime;
+            
+            time += Time.deltaTime;
+
+            if(time >= waveM.spawntimer)
+            {
+                waveM.Spawn();
+                time = 0;
+            }
+        }
+
+        if(timer >= 20f)
+        {
+              gamestart = false;
+              timer = 0;
+        }
+      
+       
+        /*
         if(life <=0)
         {
             Debug.Log("game over!");
@@ -221,15 +267,18 @@ public class GameManager : MonoBehaviour
 
         timeText.text = string.Format("Time : {0:N2}", stageTime);
 
-
+       
+        */
    
     }
+      
 
+    /*
     private void BossSpawn()
     {
         GameObject boss = Instantiate(enemyprefab[5]);
         boss.transform.position = startPos.position;
-        boss.GetComponent<Enemy>().target = target;
+      //  boss.GetComponent<Enemy>().target = target;
         boss.transform.parent = enemys;
         count ++;
 
@@ -245,7 +294,7 @@ public class GameManager : MonoBehaviour
       
         GameObject temp = Instantiate(enemyprefab[Random.Range(0,data[level-1].MaxIndex+1)]);
         temp.transform.position = startPos.position;
-        temp.GetComponent<Enemy>().target = target;
+     //   temp.GetComponent<Enemy>().target = target;
         temp.transform.parent = enemys;
 
         count++;
@@ -296,4 +345,7 @@ public class GameManager : MonoBehaviour
         coin += _coin;
         CoinText.text = string.Format("{0:F0}", coin);
     }
+
+    */
+    
 }
