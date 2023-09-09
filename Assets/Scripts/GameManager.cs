@@ -98,7 +98,23 @@ public class GameManager : MonoBehaviour
       
       
     }
-
+    
+    //function that hero batch to the heropoints when stagestart. check canuse value in heroof player's clihd object by array and if it is true. instantiate hero prefab to the heropoints.
+    public void HeroBatch()
+    {
+        Debug.Log("HeroBatch");
+        for (int i = 0; i < heropoints.Length; i++)
+        {
+            if (player.transform.GetChild(i).GetComponent<Hero>().canuse)
+            {
+                GameObject hero = Instantiate(player.transform.GetChild(i).gameObject, heropoints[i].transform.position, Quaternion.identity);
+                hero.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f); // Adjust the scale as needed
+                hero.transform.parent = heropoints[i].transform;
+                    hero.gameObject.SetActive(true);
+            }
+        }
+   
+    }
 
 /*
    private void SpawnHero(Hero_type heroType)
@@ -125,9 +141,11 @@ public class GameManager : MonoBehaviour
     public void StageStart()
     {
         spawnstart = true;
+        HeroBatch();
         ui.StageStartUI();
         //Player.instance.castle.currentHealth = Player.instance.castle.maxhp;
         UI_Manager.instance.UpdateHPBar();
+        Debug.Log("StageStart");
 
     }
       

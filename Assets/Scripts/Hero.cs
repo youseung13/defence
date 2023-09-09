@@ -44,6 +44,7 @@ private void Awake()
     enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
     hero_stat = GetComponent<PlayerStats>();
     InitializeHeroStats(herodata);
+   
 }
 private void Start()
 {
@@ -58,6 +59,11 @@ private void Start()
     {
         BattleLogic();
 
+    }
+
+    public void Init()
+    {
+        InitializeHeroStats(herodata);
     }
 
     private void BattleLogic()
@@ -96,14 +102,14 @@ private void Start()
       temp.GetComponent<Missile>().SetTarget(targetEnemy.transform);
      
     }
-
+/*
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, hero_stat.attackRange.GetflaotValue());
     //    Gizmos.DrawWireCube(transform.position, new Vector3(range,range,0));
     }
-
+*/
     IEnumerator DetectEnemies()
     {
         while (isRunning)

@@ -15,7 +15,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject CurrencyPanel;
 
     
-
+    bool isActived = false;
 
     public Text CoinText;
 
@@ -60,6 +60,7 @@ public class UI_Manager : MonoBehaviour
 
     public void FinishStageUI()
     {     
+       
         MainUI.SetActive(true);
         InGameUI.SetActive(false);
         CurrencyPanel.SetActive(true);
@@ -76,8 +77,9 @@ public class UI_Manager : MonoBehaviour
 
     public void ShowCharacterPnael()
     {     
-        CharacterPnael.SetActive(true);
-        MainUI.SetActive(false);
+         isActived = !isActived;
+        CharacterPnael.SetActive(isActived);
+        MainUI.SetActive(!isActived);
     }
 
 

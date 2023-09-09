@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_CharacterPnael : MonoBehaviour
+public class UI_CharacterPanel : MonoBehaviour
 {
     public GameObject[] characterSlot;
+
+    public UI_CharacterStatPanel characterStatPanel;
     private Player playerInstance;
     public Button buyButton;
     private UI_characterSlot selectedSlot;
+
+     Hero hero;
 
    private void OnEnable()
 {
@@ -18,7 +22,7 @@ public class UI_CharacterPnael : MonoBehaviour
     for (int i = 0; i < characterSlot.Length; i++)
     {
         UI_characterSlot slot = characterSlot[i].GetComponent<UI_characterSlot>();
-        Hero hero = playerInstance.heroprefab[i].GetComponent<Hero>();
+        hero = playerInstance.heroprefab[i].GetComponent<Hero>();
 
         // 슬롯 정보 설정 및 히어로 정보 전달
         slot.SetCharacterInfo(hero);
@@ -28,12 +32,13 @@ public class UI_CharacterPnael : MonoBehaviour
     public void OnClickSlot(UI_characterSlot slot)
     {
 
-
         if(selectedSlot == slot && slot.isSelected)
         {
             slot.isSelected = false;
             slot.slotImage.color = Color.white;
             buyButton.gameObject.SetActive(false);
+            characterStatPanel.ClearPanel();
+            //해제
             return;
         }
 
@@ -47,9 +52,13 @@ public class UI_CharacterPnael : MonoBehaviour
         selectedSlot.isSelected = true;
         selectedSlot.slotImage.color = Color.green;
         buyButton.gameObject.SetActive(true);
-        ColorButton(slot);
+   
+        slot.CheckBuy();
+             ColorButton(slot);
+        //method that shows character stat info panel when certain slot is selected creating from here cause i need hero's values
+        characterStatPanel.SetCharacterInfo(slot.slotindex);
 
-        if(slot.isbuy)
+        if(slot.isbuy || !slot.canbuy)
         {
             buyButton.gameObject.SetActive(false);
         }
@@ -83,4 +92,10 @@ public class UI_CharacterPnael : MonoBehaviour
         }
         selectedSlot.SetCharacterInfo(Player.instance.heroprefab[selectedSlot.slotindex].GetComponent<Hero>());
     }
+
+  
+
+
+    // new function for showing character stat info panel when certain slot is selected
+
 }

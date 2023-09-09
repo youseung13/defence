@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  canuse: 1
+  canuse: 0
   unlockcost: 1100
   herodata: {fileID: 11400000, guid: 32128c470938542468c7827f801b0c4c, type: 2}
   delayTimer: 0
