@@ -86,6 +86,7 @@ MonoBehaviour:
   attackCheckRadius: 0.4
   knockbackDirection: {x: 0, y: 0}
   knockbackDuration: 0
+  standHorse: 0
   stunDuration: 0
   baseRadius: 0
   moveSpeed: 2.5
@@ -93,7 +94,8 @@ MonoBehaviour:
   idleTime: 1
   defaulMoveSpeed: 0
   target: {fileID: 0}
-  attackdistance: 2
+  bulletPrefab: {fileID: 0}
+  attackdistance: 2.5
   attackCooldown: 2
   lastTimeAttacked: 0
   dis: {x: 0, y: 0, z: 0}
@@ -133,51 +135,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1478316413e3949a8923c467cc1e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level:
+    baseValue: 0
+    baseFloatValue: 0
+    modifiers: 
+    floatmodifiers: []
   strength:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   agility:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   intelligence:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   vitality:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   damage:
     baseValue: 7
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   critChance:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   critPower:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
+  attackDelay:
+    baseValue: 0
+    baseFloatValue: 0
+    modifiers: 
+    floatmodifiers: []
+  attackRange:
+    baseValue: 0
+    baseFloatValue: 0
+    modifiers: 
+    floatmodifiers: []
   maxHealth:
     baseValue: 30
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   health:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   armor:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   evasion:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   magicResistance:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   fireDamage:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   iceDamage:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   lightingDamage:
     baseValue: 0
+    baseFloatValue: 0
     modifiers: 
+    floatmodifiers: []
   isIgnited: 0
   isChilled: 0
   isShocked: 0
@@ -185,7 +232,7 @@ MonoBehaviour:
   shockStrikePrefab: {fileID: 0}
   currentHealth: 0
   HPbar: {fileID: 6001887698559721526}
-  level: 1
+  enemylevel: 1
   percentageModifier: 0.15
 --- !u!50 &231819425011305714
 Rigidbody2D:
@@ -221,8 +268,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24, y: 0.46}
-  m_Size: {x: 1.1, y: 1.35}
+  m_Offset: {x: -0.03697121, y: 0.33813256}
+  m_Size: {x: 0.54605746, y: 0.80713665}
   m_Direction: 0
 --- !u!114 &231819423644788776
 MonoBehaviour:
@@ -277,7 +324,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 324da171393fe4f48bab4981e5dce27b, type: 2}
+      objectReference: {fileID: 9100000, guid: 5c023d8a9fb70034cb011286c8094603, type: 2}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -316,27 +363,27 @@ PrefabInstance:
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
@@ -351,37 +398,37 @@ PrefabInstance:
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.33949873
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999619
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008726557
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.3486951
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.21711197
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
@@ -391,7 +438,7 @@ PrefabInstance:
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406922599110063117, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
@@ -517,7 +564,7 @@ PrefabInstance:
     - target: {fileID: 3184762258898912280, guid: 84ae11631dc1aaf4dac9e71c268e298c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 3184762258898912280, guid: 84ae11631dc1aaf4dac9e71c268e298c,
         type: 3}
@@ -552,12 +599,12 @@ PrefabInstance:
     - target: {fileID: 3184762260251739961, guid: 84ae11631dc1aaf4dac9e71c268e298c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3184762260251739961, guid: 84ae11631dc1aaf4dac9e71c268e298c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.42
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84ae11631dc1aaf4dac9e71c268e298c, type: 3}

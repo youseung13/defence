@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_Range : Enemy
 {
+   
     #region  States
 
     public Range_IdleState idleState {get; private set;}
@@ -32,8 +33,10 @@ public class Enemy_Range : Enemy
 
     protected override void OnEnable() 
     {
+          base.OnEnable();
         gameObject.GetComponent<CapsuleCollider2D>().enabled=true;
         gameObject.GetComponent<EnemyStats>().Initialize();
+        gameObject.GetComponent<EnemyStats>().SetHPbar();
 
         if(stateMachine.currentState != null)
          stateMachine.ChangeState(idleState);
@@ -78,5 +81,7 @@ public class Enemy_Range : Enemy
       {
         gameObject.SetActive(false);
       }
+
+   
 }
 

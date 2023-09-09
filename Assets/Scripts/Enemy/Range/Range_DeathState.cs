@@ -24,7 +24,7 @@ public class Range_DeathState : EnemyState
     //    enemy.anim.speed=0;
         enemy.cd.enabled =false;
 
-        stateTimer = .5f;
+     //   stateTimer = .5f;
         Debug.Log("enter dead state");
         
     }

@@ -30,12 +30,10 @@ public class Range_MoveState : EnemyState
         enemy.transform.Translate(Vector3.left * enemy.moveSpeed * Time.deltaTime);
 
 
-
-        if (enemy.distanceToPlayer <= enemy.attackdistance && enemy.CanAttack())
+        if (Vector2.Distance(enemy.target.transform.position, enemy.transform.position) < enemy.attackdistance && enemy.CanAttack())
         {
             stateMachine.ChangeState(enemy.attackState);
         }
-
         //enemy.SetVelocity(enemy.moveSpeed*enemy.facingDir, enemy.moveSpeed*enemy.facingDir);
 
 

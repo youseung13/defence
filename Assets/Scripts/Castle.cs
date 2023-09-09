@@ -1,20 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Castle : CharacterStats
 {
-      public BoxCollider2D cd {get; private set;}
-  
     
-       private void Awake() 
-   {
+    public int hp;
+    public int maxhp;
 
-      cd = GetComponent<BoxCollider2D>();
-  
-   
-        
-   }
+    [SerializeField]
+    public Slider HPbar;
+    [SerializeField]
+    public Text HPbartext;
+
+    public BoxCollider2D cd {get; private set;}
+
+    private void OnEnable() {
+        init();
+        Debug.Log("캐슬 초기화");
+    }
+
+    private void Awake()
+    {     
+        cd = GetComponent<BoxCollider2D>();  
+    }
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -22,10 +32,18 @@ public class Castle : CharacterStats
 
     }
 
+    public void init()
+    {
+        maxhp = Player.instance.castlehp;
+        currentHealth = maxhp;
+
+    }
 
     public override void TakeDamage(int _damage)
     {
         base.TakeDamage(_damage);
+
+        UI_Manager.instance.UpdateHPBar();
 
     }
 
@@ -45,11 +63,10 @@ public class Castle : CharacterStats
       //  if(currentArmor != null)//비어있지않고 입고있으면
         {
 
-
       //      currentArmor.Effect(hero.transform);//가지고있는 효과 실행
         }
 
     }
 
-  
+
 }

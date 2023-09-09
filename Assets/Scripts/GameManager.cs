@@ -1,152 +1,54 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-/*
-public class GameManager : MonoBehaviour
-{
-    public static int[,] enemyData = 
-    {
-        {0,0,2,0,3,0,4,0},
-        {0,0,0,0,1,1,1,1},
-        {1,1,1,1,1,1,1,1}
-    };
-    //생성할 프리팹
-    public GameObject[] enemy01;
-    public GameObject[] towers;
 
-    //생성될 위치
-    public Transform startPos;
-
-    public Transform[] target;
-
-    public GameObject buttons;
-    public Transform ground;
-
-    public Transform enemys;
-
-
-    public float time =0;
-    public float timeMax = 2f;
-
-    public int count = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(count <8)
-        {
-            time -= Time.deltaTime;
-            if(time <0)
-            {
-                GameObject temp = Instantiate(enemy01[enemyData[1,count]]);
-                temp.transform.position = startPos.position;
-                temp.GetComponent<Enemy>().target = target;
-                temp.transform.parent = enemys;
-
-                time = timeMax;
-                count++;
-            }
-        }
-
-    }
-
-    public void OnClickGround(Transform tr)
-    {
-        ground = tr;
-        buttons.SetActive(true);
-
-    }
-
-    public void CreateTower(int index)
-    {
-        if(ground.childCount == 0)
-        {
-              GameObject temp = Instantiate(towers[index]);
-                temp.transform.parent = ground;
-                temp.transform.localPosition = Vector3.zero;
-                temp.GetComponent<Tower>().gm = this;
-
-        }
-     
-
-        buttons.SetActive(false);
-        
-
-    }
-}
-*/
 
 public class GameManager : MonoBehaviour
 {
+    
+    public static GameManager instance;
+    public GameObject[] heropoints;
+
+    public GameObject castleprefab;
+
+    public InputField idInputField; // 유니티 인스펙터에서 텍스트 필드를 연결할 변수
+
+    private string playerID; 
+    
+    private int spawnPointIndex = 0; 
 
 
    // [Header("Info")]
-   // public List<GameObject> aliveenemy;
-  //  public int count;
- //   public int coin;
-   // public int life;
+    public List<GameObject> aliveenemy;
+    public int count;
     public PoolManager pool;
     public WaveManager waveM;
-    public Castle castle;
-     public GameObject target;
-
-
-
-    public static GameManager instance;
-
-    //public bool isPause;
-
-   // private int level ;
-   // private int Maxlevel;
-  //  private int nowwave ;
+    public UI_Manager ui;
+    public Player player;
+    public GameObject target;
 
 
 
     [SerializeField] private SpawnData[] data;
 
-    //생성할 프리팹
-    public GameObject[] enemyprefab;
-    public GameObject[] towers;
-
-    //생성될 위치
-    public Transform startPos;
-
   //  public Transform[] target;
 
-    public GameObject buttons;
-    public GameObject Pausebutton;
-    public Transform ground;
-
-    public Transform enemys;
 
 
     public float time ;
      public float timer ;
-    public bool gamestart;
-    public float timeBetweenSpawn ;
+    public bool spawnstart;
     public bool initspawn = false;
-
     public float stageTime = 0;
-
     public float stageTimeMax = 5;
 
 
-    public Text CoinText;
-    public Text lvText;
-    public Text countText;
-    public Text LifeText;
-    public Text timeText;
     // Start is called before the first frame update
 
     private void Awake() 
     {
-       timeBetweenSpawn = 0.35f;
 
           // 이미 인스턴스가 존재하면 현재 인스턴스를 파괴하고 새로 생성하지 않습니다.
         if (instance != null)
@@ -161,40 +63,18 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        /*
-        stageTime = stageTimeMax;
-        instance = this;
-        level = 1;
-        nowwave = 0;
-        coin = 30;
-        life = 5;
-
-        CoinText.text = string.Format("{0:F0}", coin);
-
-        lvText.text = string.Format("lv : {0:F0}", level);
-        
-        countText.text = string.Format("{0:F0}", aliveenemy.Count);
-
-        LifeText.text = string.Format("{0:F0}", life);
-
-
-        Debug.Log("data  1 = " + data[0].level + "/" + data[0].MaxEnemy + "/" + data[0].MaxIndex  +"/" + data[0].wave );
-        Debug.Log("data  2 = " + data[1].level + "/" + data[1].MaxEnemy + "/" + data[1].MaxIndex  +"/" + data[1].wave );
-        Debug.Log("data  = " + level + "/" + count  +"/" + nowwave + "/" + Random.Range(0,data[level-1].MaxIndex));
-
-        */
+        player.init();
+       //  countText.text = string.Format("{0:F0}", aliveenemy.Count);
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-         timeText.text = string.Format("Time : {0:N1}", timer);
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            gamestart = true;
 
-        }
-        if(gamestart)
+
+
+        if(spawnstart)
         {
             timer += Time.deltaTime;
             
@@ -209,67 +89,46 @@ public class GameManager : MonoBehaviour
 
         if(timer >= 20f)
         {
-              gamestart = false;
+            spawnstart = false;
               timer = 0;
         }
+
+        if(GameManager.instance.aliveenemy.Count == 0 && !spawnstart)
+          ui.FinishStageUI();
       
-       
-        /*
-        if(life <=0)
-        {
-            Debug.Log("game over!");
-            Pausebutton.gameObject.SetActive(true);
-            Time.timeScale=0;
-        }
+      
+    }
 
 
+/*
+   private void SpawnHero(Hero_type heroType)
+{
+    if (spawnPointIndex >= heropoints.Length)
+    {
+        Debug.LogWarning("No more spawn points available.");
+        return;
+    }
 
-        time += Time.deltaTime;
+    // Instantiate the selected hero prefab from the GameManager's array
+    GameObject heroPrefab = heroprefab[(int)heroType];
+    GameObject hero = Instantiate(heroPrefab, heropoints[spawnPointIndex].transform.position, Quaternion.identity);
 
+    hero.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f); // Adjust the scale as needed
 
-      if(time >= timeBetweenSpawn && count < data[level-1].MaxEnemy && nowwave <data[level-1].wave && !isPause) 
-            {
-                time =0;
+    // Move to the next spawn point index (cycling back to the first if all have been used)
+    spawnPointIndex = (spawnPointIndex + 1) % heropoints.Length;
+}
+*/
 
-                if(level == 5)
-                BossSpawn();
-                else
-                DoSpawn();
-            }
+ 
 
+    public void StageStart()
+    {
+        spawnstart = true;
+        ui.StageStartUI();
+        //Player.instance.castle.currentHealth = Player.instance.castle.maxhp;
+        UI_Manager.instance.UpdateHPBar();
 
-
-        if(stageTime < 0 && nowwave < data[level-1].wave )//(count == data[level-1].MaxEnemy)
-        {
-            
-            nowwave++;
-            count = 0;
-            stageTime=stageTimeMax;
-            Debug.Log("Next Wave ! Wave is = " + nowwave+"/"+data[level-1].wave);
-        }
-
-
-        if(nowwave ==data[level-1].wave && aliveenemy.Count == 0)
-        {
-            //stageTime = stageTimeMax;
-            isPause=true;
-            level++;
-            lvText.text = string.Format("lv : {0:F0}", level);
-            nowwave = 0;
-            Debug.Log("level up ! level is = " + level);
-            Pausebutton.gameObject.SetActive(true);
-            Time.timeScale=0;
-        }
-
-        if(stageTime >= 0)
-        stageTime -= Time.deltaTime;
-
-
-        timeText.text = string.Format("Time : {0:N2}", stageTime);
-
-       
-        */
-   
     }
       
 

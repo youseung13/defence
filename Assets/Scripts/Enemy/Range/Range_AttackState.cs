@@ -24,7 +24,7 @@ public class Range_AttackState : EnemyState
 
         if(triggerCalled)
         {
-            if (enemy.distanceToPlayer <= enemy.attackdistance != enemy.CanAttack())
+            if (Vector2.Distance(enemy.target.transform.position, enemy.transform.position) < enemy.attackdistance && !enemy.CanAttack())
             {
                  stateMachine.ChangeState(enemy.idleState);
             }

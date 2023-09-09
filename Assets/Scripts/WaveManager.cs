@@ -9,7 +9,7 @@ public class WaveManager : MonoBehaviour
      public Vector2  startY;
     public Vector2  endY;
 
-    public float spawntimer = 1.5f;
+    public float spawntimer = 2f;
 
     private void Awake()
      {
@@ -34,10 +34,13 @@ public class WaveManager : MonoBehaviour
     public void Spawn()
     {
        
-        GameObject enemy = GameManager.instance.pool.Get2(0);
+        GameObject enemy = GameManager.instance.pool.Get2(Random.Range(0,3));
         enemy.transform.position = Vector2.zero;
     //    enemy.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position;//생성후 위치 지정
         enemy.transform.position = new Vector2 (spawnPoint[1].transform.position.x, Random.Range(endY.y,startY.y));
+        GameManager.instance.count++;
+        GameManager.instance.aliveenemy.Add(enemy);
+         GameManager.instance.ui.countText.text = string.Format("{0:F0}", GameManager.instance.aliveenemy.Count);
     //    enemy.GetComponent<Enemy>().Init(spawndata[level]);
     //    enemy.GetComponent<Enemy>().home =  enemy.transform.position;
         

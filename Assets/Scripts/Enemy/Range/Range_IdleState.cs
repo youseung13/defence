@@ -30,10 +30,10 @@ public class Range_IdleState : EnemyState
 
        
 
-      if(enemy.moveSpeed > 0.1 && enemy.distanceToPlayer > enemy.attackdistance) // if(enemy.moveSpeed > 0.1)
+      if(enemy.moveSpeed > 0.1 && Vector2.Distance(enemy.target.transform.position, enemy.transform.position) > enemy.attackdistance) // if(enemy.moveSpeed > 0.1)
         stateMachine.ChangeState(enemy.moveState);
         
-        if (enemy.distanceToPlayer <= enemy.attackdistance && enemy.CanAttack())
+        if (Vector2.Distance(enemy.target.transform.position, enemy.transform.position) < enemy.attackdistance && enemy.CanAttack())
         {
             stateMachine.ChangeState(enemy.attackState);
         }

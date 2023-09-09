@@ -6,8 +6,10 @@ using UnityEngine;
 public class Stat  
 {
    [SerializeField] private int baseValue;
+   [SerializeField] private float baseFloatValue;
 
    public List<int> modifiers;
+   public List<float> floatmodifiers;
 
 
     public int GetValue()
@@ -21,9 +23,25 @@ public class Stat
         return finalValue;
     }
 
+      public float GetflaotValue()
+    {
+        float finalValue = baseFloatValue;
+
+        foreach(float modifier in modifiers)
+        {
+            finalValue += modifier;
+        }
+        return finalValue;
+    }
+
     public void SetDefaultValue(int _value)
     {
         baseValue = _value;
+    }
+
+     public void SetDefaultFloatValue(float _value)
+    {
+        baseFloatValue = _value;
     }
 
     public void AddModifier(int _modifier)
@@ -31,8 +49,18 @@ public class Stat
         modifiers.Add(_modifier);
     }
 
+    public void AddFloatModifier(float _modifier)
+    {
+        floatmodifiers.Add(_modifier);
+    }
+
     public void RemoveModifier(int _modifier)
     {
         modifiers.Remove(_modifier);
+    }
+
+     public void RemoveFloatModifier(float _modifier)
+    {
+        floatmodifiers.Remove(_modifier);
     }
 }

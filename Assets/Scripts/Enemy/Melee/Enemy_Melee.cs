@@ -15,6 +15,7 @@ public class Enemy_Melee : Enemy
 
     // public SkeletonStunnedState stunnedstate { get; private set;}
      public Melee_DeathState deadstate { get; private set;}
+     public Melee_StandState standstate { get; private set;}
     #endregion
     protected override void Awake()
     {
@@ -28,21 +29,45 @@ public class Enemy_Melee : Enemy
         attackState = new Melee_AttackState(this, stateMachine, "Attack", this);
        // stunnedstate = new SkeletonStunnedState(this, stateMachine, "Stunned", this);
         deadstate = new Melee_DeathState(this, stateMachine, "Die",this);
+        standstate = new Melee_StandState(this, stateMachine, "Stand", this);
     }
 
     protected override void OnEnable() 
     {
+        base.OnEnable();
+         Debug.Log("Onenable");
         gameObject.GetComponent<CapsuleCollider2D>().enabled=true;
         gameObject.GetComponent<EnemyStats>().Initialize();
+        gameObject.GetComponent<EnemyStats>().SetHPbar();
 
-        if(stateMachine.currentState != null)
-         stateMachine.ChangeState(idleState);
+         if(stateMachine.currentState != null && standHorse)
+             stateMachine.ChangeState(standstate); 
+
+        if(stateMachine.currentState != null && !standHorse)
+        {
+            stateMachine.ChangeState(idleState); 
+            Debug.Log("idle from onable");
+        }
+        
+
+      
+        
     }
 
     protected override void Start()
     {
         base.Start();
+
+            if(standHorse)
+        stateMachine.Initialize(standstate);
+        else
         stateMachine.Initialize(idleState);
+
+         
+        
+        
+    
+      
 
     
     }

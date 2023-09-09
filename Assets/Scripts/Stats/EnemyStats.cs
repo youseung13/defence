@@ -13,7 +13,7 @@ public class EnemyStats : CharacterStats
    // private ItemDrop myDropSystem;
 
     [Header("Level details")]
-    [SerializeField] private int level = 1;
+    [SerializeField] private int enemylevel = 1;
 
     [Range(0f,1f)]
     [SerializeField] private float percentageModifier = .15f;
@@ -25,11 +25,7 @@ public class EnemyStats : CharacterStats
 
         enemy = GetComponent<Enemy>();
 
-          if(HPbar !=null)
-        {
-        HPbar.value = (float)currentHealth/ (float)GetMaxHealthValue();
-        HPbar.gameObject.SetActive(false);
-        }
+        SetHPbar();
        // myDropSystem = GetComponent<ItemDrop>();
 
     }
@@ -60,7 +56,7 @@ public class EnemyStats : CharacterStats
 
     private void Modify(Stat _stat)
     {
-        for (int i = 1; i < level; i++)
+        for (int i = 1; i < enemylevel; i++)
         {
             float modifer = _stat.GetValue() * percentageModifier; //
 
@@ -103,6 +99,15 @@ public class EnemyStats : CharacterStats
       {
         base.Initialize();
       }
+
+    public void SetHPbar()
+    {
+        if(HPbar !=null)
+        {
+        HPbar.value = (float)currentHealth/ (float)GetMaxHealthValue();
+        HPbar.gameObject.SetActive(false);
+        }
+    }
 
       
     private void UpdateHPBar()

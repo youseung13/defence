@@ -3,27 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Hero_type
+{
+    Archer,
+    Magician,
+    Ninja
+}
+
 public class Hero : MonoBehaviour
 {
+    public Hero_type type;
+    public bool canuse;
+    public int unlockcost;
+
+    public HeroData herodata;
   public float delayTimer;
 
-  public float delayMax;
-
-  public float range ;
-
-  public int cost;
-
+    public Sprite sprite;
   public Animator ani;
 
   public GameManager gm;
 
-  public Transform target;
-
-  public float minDistance = 9999;
-
   public GameObject bullet;
 
-
+  public PlayerStats hero_stat;
 
     public GameObject targetEnemy;
     public LayerMask enemyLayer;
@@ -33,77 +37,52 @@ public class Hero : MonoBehaviour
 
 
 bool isRunning = true;
+
+private void Awake() 
+{
+    ani = GetComponentInChildren<Animator>();
+    enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
+    hero_stat = GetComponent<PlayerStats>();
+    InitializeHeroStats(herodata);
+}
+private void Start()
+{
+
+            // Initialize hero stats with the data from the Scriptable Object
+
+
+}
+
+
   private void Update()
-  {
-    if(!canAttack)
     {
-        delayTimer += Time.deltaTime;
-        if(delayTimer >= delayMax)
-        {
-            canAttack = true;
-            delayTimer = 0;
-        }
-    }
-    /*
-    
-    delayTimer -= Time.deltaTime;
+        BattleLogic();
 
-    if(delayTimer<0 && target != null)
-    {
-     // Debug.Log("공격!");
-      delayTimer = delayMax;
-      ani.SetTrigger("attack");
-
-      GameObject temp = Instantiate(bullet);
-      temp.transform.position = transform.position;
-      temp.GetComponent<Missile>().target = target;
     }
 
-       if (target == null)
+    private void BattleLogic()
+    {
+        if (!canAttack)
         {
-            minDistance = 999999;
-            for (int i = 0; i < gm.enemys.childCount; i++)
+            delayTimer += Time.deltaTime;
+            if (delayTimer >= hero_stat.attackDelay.GetflaotValue())
             {
-               // if (gm.enemys.GetChild(i).GetComponent<Enemy>().is)
-              //  {
-                    if (Vector3.Distance(gm.enemys.GetChild(i).position,
-                            this.transform.position) < range)
-                    {
-                        if (Vector3.Distance(gm.enemys.GetChild(i).position,
-                                this.transform.position) < minDistance)
-                        {
-                            minDistance = Vector3.Distance(gm.enemys.GetChild(i).position,
-                                this.transform.position);
-                            target = gm.enemys.GetChild(i);
-                        }
-                    }
-                //}
+                canAttack = true;
+                delayTimer = 0;
             }
         }
-        else
-        {
-           // if (Vector3.Distance(target.position,
-                 //   this.transform.position) > range || !target.GetComponent<Enemy>().isAlive)
-            //{
-            //    target = null;
-           // }
-        }
-        //가까이 있는 적을 타겟으로 설정한다
-        //타겟이 사정거리 밖으로 나가면 다시 타겟을 설정한다
 
-        */
 
-         if (!isdetect)
+        if (!isdetect)
         {
             StartCoroutine(DetectEnemies());
             isdetect = true;
         }
 
-        if(targetEnemy != null && canAttack && Vector2.Distance(transform.position,targetEnemy.transform.position) <= range)
+        if (targetEnemy != null && canAttack && Vector2.Distance(transform.position, targetEnemy.transform.position) <= hero_stat.attackRange.GetflaotValue())
         {
             Attack();
         }
-      
     }
 
     private void Attack()
@@ -121,7 +100,7 @@ bool isRunning = true;
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, hero_stat.attackRange.GetflaotValue());
     //    Gizmos.DrawWireCube(transform.position, new Vector3(range,range,0));
     }
 
@@ -130,7 +109,7 @@ bool isRunning = true;
         while (isRunning)
         {
             // Find all enemies within detection radius
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, range*2, enemyLayer);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, hero_stat.attackRange.GetflaotValue()*2, enemyLayer);
            
             if (hitColliders.Length > 0)
             {
@@ -155,4 +134,22 @@ bool isRunning = true;
             yield return new WaitForSeconds(detectInterval);
         }
     }
+
+
+   public void InitializeHeroStats(HeroData data)
+{
+    if (data != null)
+    {
+        hero_stat.level.SetDefaultValue(data.d_level);
+        hero_stat.damage.SetDefaultValue(data.d_damage);
+        hero_stat.critChance.SetDefaultFloatValue(data.d_critChance);
+        hero_stat.critPower.SetDefaultFloatValue(data.d_critPower);
+        hero_stat.attackDelay.SetDefaultFloatValue(data.d_attackDelay);
+        hero_stat.attackRange.SetDefaultFloatValue(data.d_attackRange);
+    }
+    else
+    {
+        Debug.LogError("InitializeHeroStats: HeroData is not assigned.");
+    }
+}
 }

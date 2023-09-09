@@ -44,7 +44,7 @@ public class Entity : MonoBehaviour
     anim = GetComponentInChildren<Animator>();
     rb = GetComponent<Rigidbody2D>();
     player = GameObject.Find("Castle");
-   // stats = GetComponent<CharacterStats>();
+    stats = GetComponent<CharacterStats>();
   
 
   }
@@ -115,6 +115,7 @@ public class Entity : MonoBehaviour
 
    protected virtual void OnDrawGizmos() 
    {
+    if(attackCheck != null && attackCheckRadius != 0)
     Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
    }
 

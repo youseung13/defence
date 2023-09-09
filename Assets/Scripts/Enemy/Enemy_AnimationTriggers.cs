@@ -32,7 +32,20 @@ public class Enemy_AnimationTriggers : MonoBehaviour
 
      private void Dietrigger()
     {
+        enemy.AnimationFinishTrigger();
+        enemy.anim.Rebind();
         enemy.Deactive();
+    }
+
+    private void Stand()
+    {
+        enemy.StandFromHorse();
+    }
+
+    private void RangeAttack()
+    {
+        enemy.FireEnemyBullet();
+        
     }
 
     private void OpenCounterAttackWindow() => enemy.OpenCounterAttackWindow();

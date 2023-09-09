@@ -184,6 +184,8 @@ using UnityEngine.UI;
 public class Enemy : Entity
 {
       public CapsuleCollider2D cd {get; private set;}
+      public bool isdead {get; private set;}
+      public bool standHorse ;
    // [SerializeField]protected LayerMask whatIsPlayer;
 
   
@@ -207,6 +209,7 @@ public class Enemy : Entity
 
     [Header("Attack Info")]
    public GameObject target;
+    public GameObject bulletPrefab;
     public float attackdistance;
     public float attackCooldown;
    [HideInInspector] public float lastTimeAttacked;
@@ -220,6 +223,7 @@ public class Enemy : Entity
 
    protected virtual void OnEnable() {
     // homePos = transform.position;
+    isdead = false;
 
    }
 
@@ -258,7 +262,7 @@ public class Enemy : Entity
         defaulMoveSpeed = moveSpeed;
      //   baseRadius = detectionRadius;
         baseSpeed = moveSpeed;
-        enemy = GetComponent<Enemy_Melee>();
+      
    
         
    }
@@ -270,12 +274,27 @@ public class Enemy : Entity
    {
 
         base.Update();
-         dis = new Vector3(enemy.target.transform.position.x,0,0);
-        dis2 = new Vector3(enemy.transform.position.x,0,0);
+
+        if(target != null)
+        {
+        dis = new Vector3(target.transform.position.x,0,0);
+        dis2 = new Vector3(transform.position.x,0,0);
         distanceToPlayer =  Vector3.Distance(dis, dis2);
+        }
+
 
         stateMachine.currentState.Update();
    }
+
+     public override void Die()
+    {
+        base.Die();
+        isdead = true;
+
+       
+        GameManager.instance.aliveenemy.Remove(gameObject);
+        GameManager.instance.ui.countText.text = string.Format("{0:F0}", GameManager.instance.aliveenemy.Count);
+    }
 
     #region  Counter Attack Window
    public virtual void OpenCounterAttackWindow()
@@ -332,9 +351,12 @@ public class Enemy : Entity
 
    public virtual bool CanAttack()
     {
-        if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
+        if(isdead)
+        return false;
+
+        if(Time.time >= lastTimeAttacked + attackCooldown)
         {
-            enemy.lastTimeAttacked = Time.time;
+            lastTimeAttacked = Time.time;
             return true;
         }
       //  Debug.Log("Attack is on cooldown");
@@ -347,6 +369,27 @@ public class Enemy : Entity
 
     private void OnDisable() {
         gameObject.GetComponent<CapsuleCollider2D>().enabled=false;
+    }
+
+        public void FireEnemyBullet()
+    {
+        // Instantiate and configure the enemy bullet
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.transform.localScale= new Vector3(-1, 1, 1);
+        EnemyBullet enemybull = bullet.GetComponent<EnemyBullet>();
+        enemybull.enemystat = GetComponent<EnemyStats>();
+        enemybull.target = target;
+      //  enemybull.damage =   enemy.stats.damage;
+        // Set the bullet's target, direction, or any other necessary properties
+        // ...
+    }
+
+     public void StandFromHorse()
+    {
+         GameObject enemy = GameManager.instance.pool.Get2(3);
+         enemy.transform.position = transform.position;
+         enemy.GetComponent<Enemy>().standHorse = true;
+        
     }
 
  
