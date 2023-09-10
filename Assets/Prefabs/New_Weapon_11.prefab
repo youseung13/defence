@@ -96,11 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fa284b687b4604594bbde4d0fa3906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pl: {fileID: 0}
   target: {fileID: 0}
   oritarget: {fileID: 0}
   cr: {fileID: 0}
   speed: 30
-  damage: 4
+  damage:
+    baseValue: 0
+    baseFloatValue: 0
+    modifiers: 
+    floatmodifiers: []
   dir: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
   lastKnownPosition: {x: 0, y: 0, z: 0}

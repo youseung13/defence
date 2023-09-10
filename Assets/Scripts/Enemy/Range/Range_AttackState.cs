@@ -12,7 +12,7 @@ public class Range_AttackState : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("attack state is start");
+       // Debug.Log("attack state is start");
         
         base.Enter();
     }

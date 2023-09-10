@@ -19,7 +19,7 @@ public class Enemy_AnimationTriggers : MonoBehaviour
        {
            if(hit.GetComponent<Castle>() != null)
            {
-              Debug.Log("enemy attack");
+//              Debug.Log("enemy attack");
                Castle target = hit.GetComponent<Castle>();
                enemy.stats.DoDamage(target);
 

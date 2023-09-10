@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5677225258550470026}
   - component: {fileID: 7800315877606292271}
-  - component: {fileID: 1827648485506130793}
   - component: {fileID: 364275474071222411}
+  - component: {fileID: 6854804855342669644}
   m_Layer: 0
   m_Name: pl_magician
   m_TagString: Untagged
@@ -46,11 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef883cb0a07b99948acb7ddc54aecbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
-    baseValue: 0
-    baseFloatValue: 0
-    modifiers: 
-    floatmodifiers: []
   strength:
     baseValue: 0
     baseFloatValue: 0
@@ -142,33 +137,6 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 0}
   currentHealth: 0
---- !u!114 &1827648485506130793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5677225258550470031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d501c1f4eee8f4582d7e70ebe30bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  canuse: 0
-  unlockcost: 1100
-  herodata: {fileID: 11400000, guid: 32128c470938542468c7827f801b0c4c, type: 2}
-  delayTimer: 0
-  sprite: {fileID: 8140494928851016559, guid: fb24f76e9108537458491f102ddcaecc, type: 3}
-  ani: {fileID: 0}
-  gm: {fileID: 0}
-  bullet: {fileID: 5745422517375943945, guid: daf1b126edd25d54e9348c76614fc217, type: 3}
-  hero_stat: {fileID: 0}
-  targetEnemy: {fileID: 0}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  detectInterval: 0
 --- !u!114 &364275474071222411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +153,39 @@ MonoBehaviour:
   chillColor: []
   ignitedColor: []
   shockColor: []
+--- !u!114 &6854804855342669644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677225258550470031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a05a1852f36b749888111aa2c52029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  herodata: {fileID: 11400000, guid: 32128c470938542468c7827f801b0c4c, type: 2}
+  skills: []
+  level: 0
+  power: 0
+  levelManager: {fileID: 0}
+  type: 1
+  canuse: 0
+  unlockcost: 0
+  sprite: {fileID: 8140494928851016559, guid: fb24f76e9108537458491f102ddcaecc, type: 3}
+  ani: {fileID: 0}
+  bullet: {fileID: 5745422517375943945, guid: daf1b126edd25d54e9348c76614fc217, type: 3}
+  hero_stat: {fileID: 0}
+  targetEnemy: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  delayTimer: 0
+  detectInterval: 0
+  isdetect: 0
+  canAttack: 0
 --- !u!1001 &4177632182821444639
 PrefabInstance:
   m_ObjectHideFlags: 0

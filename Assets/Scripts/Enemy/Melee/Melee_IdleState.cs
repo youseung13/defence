@@ -12,7 +12,7 @@ public class Melee_IdleState : EnemyState
     }
 
     public override void Enter()
-    {   Debug.Log("idle state is start");
+    {   //Debug.Log("idle state is start");
         base.Enter();
         //enemy.SetZeroVelocity();
 

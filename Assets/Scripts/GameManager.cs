@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     
     public static GameManager instance;
+    public GameObject LevelManager;
     public GameObject[] heropoints;
 
     public GameObject castleprefab;
@@ -94,7 +95,7 @@ public class GameManager : MonoBehaviour
         }
 
         if(GameManager.instance.aliveenemy.Count == 0 && !spawnstart)
-          ui.FinishStageUI();
+          StageFInsih();
       
       
     }
@@ -102,16 +103,27 @@ public class GameManager : MonoBehaviour
     //function that hero batch to the heropoints when stagestart. check canuse value in heroof player's clihd object by array and if it is true. instantiate hero prefab to the heropoints.
     public void HeroBatch()
     {
-        Debug.Log("HeroBatch");
+        
         for (int i = 0; i < heropoints.Length; i++)
         {
-            if (player.transform.GetChild(i).GetComponent<Hero>().canuse)
-            {
-                GameObject hero = Instantiate(player.transform.GetChild(i).gameObject, heropoints[i].transform.position, Quaternion.identity);
-                hero.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f); // Adjust the scale as needed
-                hero.transform.parent = heropoints[i].transform;
-                    hero.gameObject.SetActive(true);
-            }
+         
+            GameObject hero = player.transform.GetChild(i).gameObject;
+            hero.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f); // Adjust the scale as needed
+           // hero.transform.parent = heropoints[i].transform;
+            hero.transform.position = heropoints[i].transform.position;
+            hero.gameObject.SetActive(true);
+        }
+   
+    }
+
+    public void HideHero()
+    {
+        
+        for (int i = 0; i < heropoints.Length; i++)
+        {
+         
+            GameObject hero = player.transform.GetChild(i).gameObject;
+            hero.gameObject.SetActive(false);
         }
    
     }
@@ -147,6 +159,12 @@ public class GameManager : MonoBehaviour
         UI_Manager.instance.UpdateHPBar();
         Debug.Log("StageStart");
 
+    }
+
+    public void StageFInsih()
+    {
+        ui.FinishStageUI();
+        HideHero();
     }
       
 

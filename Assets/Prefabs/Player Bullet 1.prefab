@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692952449593033211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &1593701965374258527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 874343242196921964, guid: 5547e92425a5b584ba72bba3566474f0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.40970984, g: 0.4893947, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,11 +96,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fa284b687b4604594bbde4d0fa3906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pl: {fileID: 0}
   target: {fileID: 0}
+  oritarget: {fileID: 0}
   cr: {fileID: 0}
-  speed: 10
-  damage: 0
+  speed: 20
+  damage:
+    baseValue: 0
+    baseFloatValue: 0
+    modifiers: 
+    floatmodifiers: []
   dir: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  lastKnownPosition: {x: 0, y: 0, z: 0}
 --- !u!70 &-6486089752085824970
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

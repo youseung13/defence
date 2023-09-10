@@ -33,7 +33,7 @@ public class CharacterStats : MonoBehaviour
 
 
    [Header("Major stats")]
-   public Stat level;
+  
     public Stat strength; //1point increase damage by 1 and crit.power by 1%
     public Stat agility;  // 1 point increase evasion by 1% and crit.chance 1%
     public Stat intelligence; // 1point increase magic damage by 1, and magic resistance by 3

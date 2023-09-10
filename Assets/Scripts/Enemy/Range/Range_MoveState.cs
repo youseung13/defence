@@ -13,7 +13,7 @@ public class Range_MoveState : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("move state is start");
+       // Debug.Log("move state is start");
         base.Enter();
     }
 

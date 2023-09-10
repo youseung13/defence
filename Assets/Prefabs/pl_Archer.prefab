@@ -10,15 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 2343384871730763367}
   - component: {fileID: 417604233177836124}
-  - component: {fileID: 2828592083802953922}
   - component: {fileID: 266475994488484488}
+  - component: {fileID: 1848444127}
+  - component: {fileID: 1848444125}
   m_Layer: 0
   m_Name: pl_Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2343384871730763367
 Transform:
   m_ObjectHideFlags: 0
@@ -46,11 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef883cb0a07b99948acb7ddc54aecbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
-    baseValue: 0
-    baseFloatValue: 0
-    modifiers: 
-    floatmodifiers: []
   strength:
     baseValue: 0
     baseFloatValue: 0
@@ -142,33 +138,6 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 0}
   currentHealth: 0
---- !u!114 &2828592083802953922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2343384871730763362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d501c1f4eee8f4582d7e70ebe30bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  canuse: 0
-  unlockcost: 100
-  herodata: {fileID: 11400000, guid: 46eb80fd81e137b418168bc82313a6b8, type: 2}
-  delayTimer: 0
-  sprite: {fileID: 2173392165822354196, guid: 1b33ba47d93da834b92c7123560a2299, type: 3}
-  ani: {fileID: 0}
-  gm: {fileID: 0}
-  bullet: {fileID: 3331668172448504085, guid: 4c07d7b71f5c91149ac3ec1ad8286ced, type: 3}
-  hero_stat: {fileID: 0}
-  targetEnemy: {fileID: 0}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  detectInterval: 0
 --- !u!114 &266475994488484488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +154,72 @@ MonoBehaviour:
   chillColor: []
   ignitedColor: []
   shockColor: []
+--- !u!114 &1848444127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343384871730763362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a05a1852f36b749888111aa2c52029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  herodata: {fileID: 11400000, guid: 46eb80fd81e137b418168bc82313a6b8, type: 2}
+  skills:
+  - {fileID: 11400000, guid: 74032291da0b4a648b03a1c39c963389, type: 2}
+  level: 0
+  power: 0
+  levelManager: {fileID: 0}
+  type: 0
+  canuse: 0
+  unlockcost: 0
+  sprite: {fileID: 2173392165822354196, guid: 1b33ba47d93da834b92c7123560a2299, type: 3}
+  ani: {fileID: 0}
+  bullet: {fileID: 3331668172448504085, guid: 4c07d7b71f5c91149ac3ec1ad8286ced, type: 3}
+  hero_stat: {fileID: 0}
+  targetEnemy: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  delayTimer: 0
+  detectInterval: 0
+  isdetect: 0
+  canAttack: 0
+--- !u!114 &1848444125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343384871730763362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5199d7cb164606499db5151b23dd5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiArrowPrefab: {fileID: 7492472250040845951, guid: 4068c90d299a70140b30f026be62db4e,
+    type: 3}
+  firePoint: {fileID: 2343384871730763367}
+  explodepoint: {fileID: 0}
+  explosionEffectPrefab: {fileID: 8704409809268960231, guid: 31d9e4347e7a892478c28cf29c503efc,
+    type: 3}
+  arrowDelay: 0.15
+  numArrows: 3
+--- !u!114 &23875925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246907566983031245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7faf1e92efbe7814bb2fa6274c98f556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3763517294033031741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,7 +231,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 22825349f0ed17e48bbc9d5bce7c98e6, type: 2}
+      objectReference: {fileID: 9100000, guid: 487d952b6384aa14797370b94f204f7b, type: 2}
     - target: {fileID: 1619016428826633517, guid: e6a80d0ea1ee4544b8aa098614fab14d,
         type: 3}
       propertyPath: m_Name
@@ -312,6 +347,12 @@ PrefabInstance:
 --- !u!224 &6030764810186016566 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7461100833865766155, guid: e6a80d0ea1ee4544b8aa098614fab14d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3763517294033031741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5246907566983031245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9001131788729711600, guid: e6a80d0ea1ee4544b8aa098614fab14d,
     type: 3}
   m_PrefabInstance: {fileID: 3763517294033031741}
   m_PrefabAsset: {fileID: 0}

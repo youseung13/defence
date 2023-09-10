@@ -22,7 +22,7 @@ public class PoolManager : MonoBehaviour
     {
         uipools[index] = new List<GameObject>();//배열안에 리스트들 초기화
     }
-    Debug.Log(uipools.Length);
+   // Debug.Log(uipools.Length);
 
     enemypools = new List<GameObject>[enemyprefab.Length];//변수 길이만큼 리스트 배열들 초기화
 
@@ -30,7 +30,7 @@ public class PoolManager : MonoBehaviour
     {
         enemypools[index] = new List<GameObject>();//배열안에 리스트들 초기화
     }
-    Debug.Log(enemypools.Length);
+  //  Debug.Log(enemypools.Length);
 
      heropools = new List<GameObject>[heroprefab.Length];//변수 길이만큼 리스트 배열들 초기화
 
@@ -38,7 +38,7 @@ public class PoolManager : MonoBehaviour
     {
         heropools[index] = new List<GameObject>();//배열안에 리스트들 초기화
     }
-    Debug.Log(heropools.Length);
+ //   Debug.Log(heropools.Length);
    }
 
 

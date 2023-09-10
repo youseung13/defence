@@ -12,7 +12,7 @@ public class Melee_StandState : EnemyState
     }
 
     public override void Enter()
-    {  Debug.Log("Stand state is start");
+    { // Debug.Log("Stand state is start");
         base.Enter();
         //enemy.SetZeroVelocity();
     stateTimer = 0.7f;
