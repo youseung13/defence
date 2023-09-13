@@ -8,6 +8,8 @@ public class Missile : MonoBehaviour
    public GameObject target;
    public Transform oritarget;
    public CapsuleCollider2D cr;
+   public Hero hero;
+
 
    public float speed = 0.7f;
  
@@ -16,6 +18,8 @@ public class Missile : MonoBehaviour
    public Vector3 dir;
    public Vector3 targetPos;
    public Vector3 lastKnownPosition;
+
+   private bool ishit = false;
 
    private void Awake() {
       cr= GetComponent<CapsuleCollider2D>();
@@ -53,7 +57,7 @@ public class Missile : MonoBehaviour
         Destroy(gameObject);
 
     }
-*/
+
     private void Update()
     {
         if (target != null)
@@ -68,9 +72,34 @@ public class Missile : MonoBehaviour
             angle);
         }
 
-        if(Vector2.Distance(transform.position,lastKnownPosition) < 0.2f)
+        if(Vector2.Distance(transform.position,lastKnownPosition) < 0.01f)
         Destroy(gameObject);
     }
+*/
+            private void Update()
+        {
+            if(target == null || Vector2.Distance(transform.position,lastKnownPosition) < 0.01f)
+            {
+                Destroy(gameObject);
+            }
+
+            if (target != null)
+            {
+
+                // 현재 위치에서 목표 위치까지 직선으로 이동
+                transform.position = Vector3.MoveTowards(transform.position, lastKnownPosition, speed * Time.deltaTime);
+
+                // 미사일의 방향을 조절
+                Vector3 direction = (lastKnownPosition - transform.position).normalized;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+
+                // 미사일이 목표 지점에 도달하면 파괴
+
+               
+            }
+        }
+
      public void SetTarget(Transform newTarget)
     {
      
@@ -88,11 +117,11 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hit) 
     {
-      if(hit.GetComponent<EnemyStats>() != null)
+      if(hit.GetComponent<EnemyStats>() != null && !ishit)
       {
             EnemyStats targetstat = hit.GetComponent<EnemyStats>();
-
             pl.DoDamage(targetstat);
+            ishit = true;
             //hit.GetComponent<Enemy>().Die();
             Destroy(gameObject);
       }

@@ -89,7 +89,7 @@ MonoBehaviour:
   standHorse: 0
   stunDuration: 0
   baseRadius: 0
-  moveSpeed: 3
+  moveSpeed: 2
   baseSpeed: 0
   idleTime: 1
   defaulMoveSpeed: 0
@@ -136,11 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1478316413e3949a8923c467cc1e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
-    baseValue: 0
-    baseFloatValue: 0
-    modifiers: 
-    floatmodifiers: []
   strength:
     baseValue: 0
     baseFloatValue: 0
@@ -321,6 +316,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 231819425011305721}
     m_Modifications:
+    - target: {fileID: 2240198408068719384, guid: 087dda217a8aa5a4ea9dca9d3e5887e0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.53125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240198408068719384, guid: 087dda217a8aa5a4ea9dca9d3e5887e0,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.375
+      objectReference: {fileID: 0}
     - target: {fileID: 4511942925621717915, guid: 087dda217a8aa5a4ea9dca9d3e5887e0,
         type: 3}
       propertyPath: m_Controller

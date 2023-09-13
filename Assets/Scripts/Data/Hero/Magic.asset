@@ -18,4 +18,4 @@ MonoBehaviour:
   d_critChance: 0
   d_critPower: 0
   d_attackRange: 18
-  d_attackDelay: 2.2
+  d_attackDelay: 1.7

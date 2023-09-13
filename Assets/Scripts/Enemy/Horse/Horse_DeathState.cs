@@ -17,7 +17,7 @@ public class Horse_DeathState : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("death state is start");
+       // Debug.Log("death state is start");
         base.Enter();
 
     //    enemy.anim.SetBool(enemy.lastAnimBoolName,true);
@@ -25,7 +25,7 @@ public class Horse_DeathState : EnemyState
         enemy.cd.enabled =false;
 
     //  stateTimer = .5f;
-        Debug.Log("enter dead state");
+      //  Debug.Log("enter dead state");
         
     }
 

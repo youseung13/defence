@@ -20,7 +20,7 @@ public class MultiArrow : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         if(transform.position == target)
         {
-            skillController.StartExplosion();
+            skillController.MultiShotExplode();
             Destroy(gameObject);
         }
     }

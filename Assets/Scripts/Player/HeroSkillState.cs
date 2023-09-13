@@ -12,7 +12,9 @@ public class HeroSkillState : HeroState
     {
         base.Enter();
        // Debug.Log("스킬");
-        stateTimer = 2.0f;
+   //     stateTimer = 2.0f;
+            ShotSkill();
+            hero.skillshot = false;
        // player.SetZeroVelocity();//공격중일떄 못움직이게
        
        
@@ -32,8 +34,13 @@ public class HeroSkillState : HeroState
 
        if(triggerCalled && stateTimer<=0.0f)
         stateMachine.ChangeState(hero.idleState);
-
-      
        
     }
+
+    public void ShotSkill()
+    {
+        hero.GetComponent<SkillController>().UseMultiShot(hero.GetComponent<SkillController>().skills[0].targetPosition);
+    }
+
+
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   d_level: 1
-  d_damage: 18
+  d_damage: 20
   d_critChance: 0
   d_critPower: 0
   d_attackRange: 16

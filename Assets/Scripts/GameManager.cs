@@ -72,6 +72,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.O))
+        Time.timeScale = Time.timeScale*2;
+
+        if(Input.GetKeyDown(KeyCode.P))
+        Time.timeScale = 1;
 
 
 
@@ -88,7 +93,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(timer >= 20f)
+        if(timer >= 90f)
         {
             spawnstart = false;
               timer = 0;

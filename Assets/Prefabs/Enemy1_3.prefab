@@ -110,7 +110,7 @@ MonoBehaviour:
   standHorse: 0
   stunDuration: 0
   baseRadius: 0
-  moveSpeed: 1.8
+  moveSpeed: 1.5
   baseSpeed: 0
   idleTime: 0
   defaulMoveSpeed: 0
@@ -135,11 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1478316413e3949a8923c467cc1e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
-    baseValue: 0
-    baseFloatValue: 0
-    modifiers: 
-    floatmodifiers: []
   strength:
     baseValue: 0
     baseFloatValue: 0

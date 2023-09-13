@@ -25,6 +25,7 @@ public class Hero : MonoBehaviour
     public Hero_type type;
     public bool canuse;
     public int unlockcost;
+     public bool skillshot;
 
 
 
@@ -36,14 +37,16 @@ public class Hero : MonoBehaviour
     public GameObject targetEnemy;
     public LayerMask enemyLayer;
       public float delayTimer;
-   public float detectInterval =0;
+   public float detectInterval =0.5f;
     public bool isdetect;
     public bool canAttack;
     bool isRunning = true;
+    private bool hasDetectedEnemy = false;
 
     #region State
     public HeroStateMachine stateMachine {get; private set;}
     public HeroIdleState idleState  {get; private set;}
+    public HeroReadyState readyState { get; private set;}
     public HeroSkillState skillState { get; private set;}
     public HeroAttackState attackState { get; private set;}
     #endregion
@@ -58,6 +61,7 @@ private void Awake()
 
     stateMachine = new HeroStateMachine();
     idleState = new HeroIdleState(this, stateMachine, "Idle");
+    readyState = new HeroReadyState(this, stateMachine, "Ready");
     skillState = new HeroSkillState(this, stateMachine, "Skill");
     attackState = new HeroAttackState(this, stateMachine, "Attack");
    
@@ -97,11 +101,12 @@ private void Start()
         }
 
 
-        if (!isdetect)
-        {
-            StartCoroutine(DetectEnemies());
-            isdetect = true;
-        }
+        if (targetEnemy == null && canAttack)
+    {
+        hasDetectedEnemy = false;
+        StartCoroutine(DetectEnemies());
+    }
+
 
         if (targetEnemy != null && canAttack && Vector2.Distance(transform.position, targetEnemy.transform.position) <= hero_stat.attackRange.GetflaotValue())
         {
@@ -113,7 +118,7 @@ private void Start()
             if(targetEnemy.activeSelf == false)
             {
                 targetEnemy = null;
-                isdetect = false;
+           
             }
         }
     }
@@ -126,7 +131,9 @@ private void Start()
       temp.transform.position = transform.position;
       temp.GetComponent<Missile>().target = targetEnemy;
       temp.GetComponent<Missile>().pl = hero_stat;
+      temp.GetComponent<Missile>().hero = this;
 
+        if(targetEnemy != null)
       temp.GetComponent<Missile>().SetTarget(targetEnemy.transform);
      
     }
@@ -142,8 +149,10 @@ private void Start()
 */
     IEnumerator DetectEnemies()
     {
-        while (isRunning)
+        while (!hasDetectedEnemy &&isRunning)
+        
         {
+            Debug.Log("Detecting Enemies");
             // Find all enemies within detection radius
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, hero_stat.attackRange.GetflaotValue()*2, enemyLayer);
            
@@ -166,8 +175,12 @@ private void Start()
             {
                 targetEnemy = null;
             }
+            hasDetectedEnemy = true;
             // Wait for detectInterval seconds before checking for new enemies again
             yield return new WaitForSeconds(detectInterval);
+
+
+            // 감지 플래그 초기화
         }
     }
 

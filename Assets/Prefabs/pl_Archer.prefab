@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 417604233177836124}
   - component: {fileID: 266475994488484488}
   - component: {fileID: 1848444127}
-  - component: {fileID: 1848444125}
+  - component: {fileID: 8654442805503943784}
   m_Layer: 0
   m_Name: pl_Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2343384871730763367
 Transform:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   detectInterval: 0
   isdetect: 0
   canAttack: 0
---- !u!114 &1848444125
+--- !u!114 &8654442805503943784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,17 +197,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2343384871730763362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5199d7cb164606499db5151b23dd5a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 677e28f4a86cec5418aaec88dab217f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiArrowPrefab: {fileID: 7492472250040845951, guid: 4068c90d299a70140b30f026be62db4e,
-    type: 3}
-  firePoint: {fileID: 2343384871730763367}
-  explodepoint: {fileID: 0}
-  explosionEffectPrefab: {fileID: 8704409809268960231, guid: 31d9e4347e7a892478c28cf29c503efc,
-    type: 3}
-  arrowDelay: 0.15
-  numArrows: 3
+  skills:
+  - {fileID: 11400000, guid: 6da63ae14c9b12443891cf23e519844c, type: 2}
+  hero: {fileID: 0}
 --- !u!114 &23875925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +222,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2343384871730763367}
     m_Modifications:
+    - target: {fileID: 13888354702389438, guid: e6a80d0ea1ee4544b8aa098614fab14d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 13888354702389438, guid: e6a80d0ea1ee4544b8aa098614fab14d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 164605969873887099, guid: e6a80d0ea1ee4544b8aa098614fab14d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 164605969873887099, guid: e6a80d0ea1ee4544b8aa098614fab14d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.4375
+      objectReference: {fileID: 0}
     - target: {fileID: 1146534949681365293, guid: e6a80d0ea1ee4544b8aa098614fab14d,
         type: 3}
       propertyPath: m_Controller
@@ -281,6 +296,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461100833865766155, guid: e6a80d0ea1ee4544b8aa098614fab14d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461100833865766155, guid: e6a80d0ea1ee4544b8aa098614fab14d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7461100833865766155, guid: e6a80d0ea1ee4544b8aa098614fab14d,
         type: 3}

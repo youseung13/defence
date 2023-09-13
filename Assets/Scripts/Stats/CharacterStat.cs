@@ -169,7 +169,7 @@ public class CharacterStats : MonoBehaviour
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
         _targetStats.TakeDamage(totalDamage);
 
-        Debug.Log("total damage is " + totalDamage);
+//        Debug.Log("total damage is " + totalDamage);
 
         //if inventory current weapon has fire effect
         DoMagicalDamage(_targetStats);//평타에 속성데미지 추가 ailemnt on primary attack
