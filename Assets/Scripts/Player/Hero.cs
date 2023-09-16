@@ -39,7 +39,7 @@ public class Hero : MonoBehaviour
     public GameObject targetEnemy;
     public LayerMask enemyLayer;
       public float delayTimer;
-   public float detectInterval =1.0f;
+   public float detectInterval =0.5f;
     public bool isdetect;
     public bool canAttack;
     bool isRunning = true;
@@ -91,42 +91,44 @@ private void Start()
 
     public void BattleLogic()
     {
+        if(GameManager.instance.game_State == GameManager.Game_State.Battle)
+        {
         
-
-        if (!canAttack)
-        {
-            delayTimer += Time.deltaTime;
-            if (delayTimer >= hero_stat.attackDelay.GetflaotValue())
+            if (!canAttack)
             {
-                canAttack = true;
-                delayTimer = 0;
+                delayTimer += Time.deltaTime;
+                if (delayTimer >= hero_stat.attackDelay.GetflaotValue())
+                {
+                    canAttack = true;
+                    delayTimer = 0;
+                }
             }
-        }
 
 
-    if(GameManager.instance.game_State == GameManager.Game_State.Battle)
-    {
-          if (targetEnemy == null && canAttack)
-    {
-        hasDetectedEnemy = false;
-        StartCoroutine(DetectEnemies());
-    }
-
-    }
-  
-
-        if (targetEnemy != null && canAttack && Vector2.Distance(transform.position, targetEnemy.transform.position) <= hero_stat.attackRange.GetflaotValue())
-        {
-            stateMachine.ChangeState(attackState);
-        }
-
-        if(targetEnemy != null)
-        {
-            if(targetEnemy.activeSelf == false)
+        
+            if (targetEnemy == null && canAttack)
             {
-                targetEnemy = null;
-           
+                hasDetectedEnemy = false;
+                StartCoroutine(DetectEnemies());
             }
+
+    
+    
+
+            if (targetEnemy != null && canAttack && Vector2.Distance(transform.position, targetEnemy.transform.position) <= hero_stat.attackRange.GetflaotValue())
+            {
+                stateMachine.ChangeState(attackState);
+            }
+
+            if(targetEnemy != null)
+            {
+                if(targetEnemy.activeSelf == false)
+                {
+                    targetEnemy = null;
+            
+                }
+            }
+
         }
     }
 

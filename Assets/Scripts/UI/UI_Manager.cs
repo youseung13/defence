@@ -10,7 +10,8 @@ public class UI_Manager : MonoBehaviour
         MainScene,
         BattleScene,
         CharacterScene,
-        HeroBatchScene
+        HeroBatchScene,
+        
     }
     public UIState currentState;
     public static UI_Manager instance;
@@ -21,6 +22,11 @@ public class UI_Manager : MonoBehaviour
     public GameObject[] CharaterUI;
     public Button batchButton;
     public Button batchButton2;
+
+    public GameObject VictoryPanel;
+    public GameObject DefeatPanel;
+
+    public GameObject StartButton;
 
     bool isActived = false;
 
@@ -64,7 +70,7 @@ public class UI_Manager : MonoBehaviour
     void Update()
     {
         
-         timeText.text = string.Format("Time : {0:N1}", GameManager.instance.timer);
+         timeText.text = string.Format("Time : {0:N1}", GameManager.instance.stageTimer);
          UpdateUI();
     }
 
@@ -84,6 +90,10 @@ public class UI_Manager : MonoBehaviour
         {
                 CharaterUI[i].SetActive(false);
         }
+
+        VictoryPanel.SetActive(false);
+        DefeatPanel.SetActive(false);
+        StartButton.SetActive(false);
      
     }
 
@@ -110,9 +120,7 @@ public class UI_Manager : MonoBehaviour
                     if(BattleSceneUI[i].activeSelf == false)
                     BattleSceneUI[i].SetActive(true);
                 }
-                GameManager.instance.game_State = GameManager.Game_State.Battle;
                 GameManager.instance.SetBatch();
-                GameManager.instance.StageStart();
                 break;
             case UIState.CharacterScene:
                 for(int i = 0; i < CharaterUI.Length; i++)
@@ -128,6 +136,7 @@ public class UI_Manager : MonoBehaviour
                    CharaterUI[1].SetActive(true);
                    BattleSceneUI[4].SetActive(true);
                     BattleSceneUI[5].SetActive(true);
+                    StartButton.SetActive(true);
                     GameManager.instance.game_State = GameManager.Game_State.Ready;
                     GameManager.instance.SetBatch();
                 break;
@@ -172,4 +181,26 @@ public class UI_Manager : MonoBehaviour
         batchButton2.gameObject.SetActive(false);
             
     }
+
+    public void showVictoryPanel()
+    {
+        VictoryPanel.SetActive(true);
+        VictoryPanel.gameObject.GetComponent<ResultPanel>().resultText.text = "'Stage " + Player.instance.stage + "' 클리어 했습니다.";
+
+       
+    }
+
+    public void showDefeatPanel()
+    {
+        DefeatPanel.SetActive(true);
+        DefeatPanel.gameObject.GetComponent<ResultPanel>().resultText.text = "'Stage " + Player.instance.stage + "' 패배 했습니다.";
+    }
+
+      public void OnClickStageStart()
+    {
+        GameManager.instance.StageStart(GameManager.instance.player.world,GameManager.instance.player.stage);   
+        StartButton.SetActive(false);
+    }
+
+
 }

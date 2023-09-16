@@ -10,6 +10,7 @@ public class PoolManager : MonoBehaviour
    public GameObject[] heroprefab;
 
 
+
    // 풀 담당을 하는 리스트 변수와1:1관계
    List<GameObject>[] uipools;
     List<GameObject>[] enemypools;

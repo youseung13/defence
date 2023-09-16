@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
     public int gold;
     public int diamond;
 
+      public int stage;
+      public int world;
+    public int clearedmaxstage;
+    public int clearedmaxWorld;
+
     public int castlelevel;
     public int castlehp;
     public List<Hero> herolist;
@@ -50,11 +55,15 @@ public class Player : MonoBehaviour
     public void init()
     {
         id = "test";
+        stage = 1;
+        world = 1;
+        clearedmaxstage = stage;
+        clearedmaxWorld = world;
         level = 1;
         exp = 0;
         gold = 30000;
         diamond = 1000;
-        castlehp = 2500;
+        castlehp = 200;
     }
    
     // Start is called before the first frame update

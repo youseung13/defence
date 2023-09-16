@@ -31,6 +31,7 @@ public class HeroIdleState : HeroState
            stateMachine.ChangeState(hero.skillState);
        }
 
+        if(GameManager.instance.game_State == GameManager.Game_State.Battle)
        hero.BattleLogic();
        
     }

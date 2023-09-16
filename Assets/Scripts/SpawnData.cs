@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static WaveManager;
 
 public enum EnemyType
 {
@@ -10,10 +11,16 @@ public enum EnemyType
 [CreateAssetMenu(fileName = "SpawnData", menuName = "Data/Spawn")]
 public class SpawnData : ScriptableObject
 {
-    public int level;
-    public int wave;
-    public int MaxEnemy;
-    public int MaxIndex;
+    public int world;
+    public int stage;
+    public GameObject[] enemyprefab;
+
+    public SpawnType[] spawntype;
+    public int[] enemycount;
+
+    public float[] enemyspawnrate;
+
+    public int[] MaxEnemy;
 
    
     

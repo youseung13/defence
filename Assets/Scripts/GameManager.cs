@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Game_State game_State;
     public static GameManager instance;
     public GameObject LevelManager;
+
+    public GameObject StageManager;
     public UI_CharacterPanel UI_characterPanel;
     public GameObject[] heropoints;
     public bool[] batchedhero;
@@ -30,10 +32,10 @@ public class GameManager : MonoBehaviour
 
     private string playerID; 
     
-    private int spawnPointIndex = 0; 
+    public int  stageNumber;
+    public int worldNumber;
 
-    public int stage;
-    public int clearedmaxstage;
+  
 
 
    // [Header("Info")]
@@ -56,12 +58,13 @@ public class GameManager : MonoBehaviour
 
 
     public float time ;
-     public float timer ;
+     public float stageTimer ;
     public bool spawnstart;
     public bool initspawn = false;
-    public float stageTime = 0;
-    public float stageTimeMax = 5;
     public bool readToBattle;
+    private bool isFunctionRunning;
+    public bool Automode;
+    private bool isFunctionRunning2;
 
 
     // Start is called before the first frame update
@@ -96,38 +99,62 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
         Time.timeScale = 1;
 
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            if(Automode)
+            {
+                Automode = false;
+            }
+            else
+            {
+                Automode = true;
+            }
+            Debug.Log("Auto mode is " + Automode);
+        }
+
 
       //  if(readToBattle)
      //  // HeroBatch();
 
-        if(spawnstart)
+if(game_State == GameManager.Game_State.Battle)
+{
+     if(spawnstart)
         {
            
-            timer += Time.deltaTime;
-            
-            time += Time.deltaTime;
-
-           
-            if(time >= waveM.spawntimer)
-            {
-                waveM.Spawn();
-                time = 0;
-            }
+            stageTimer += Time.deltaTime;
+   
         }
 
-        if(timer >= 50f)
+        if(stageTimer >= 20f)
         {
             spawnstart = false;
-              timer = 0;
+              stageTimer = 0;
         }
 
+
+        if(aliveenemy.Count == 0 && !spawnstart || Input.GetKeyDown(KeyCode.C))
+        {
+           CallFunctionWithDelay(StageClear);
+        //  StageClear();
+        }
+
+        if(castle.currentHealth <= 0 || Input.GetKeyDown(KeyCode.F))
+        {
+            castle.currentHealth = 0;
+            spawnstart = false;
+             stageTimer = 0;
+              CallFunctionWithDelay(StageFail);
+         //  StageFail();
+        
+        }
+
+}
+       
        // if(GameManager.instance.aliveenemy.Count == 0 && !spawnstart)
         //  StageFInsih();
       
       
     }
-
- 
 
     public void BatchHero()
     {
@@ -213,38 +240,77 @@ public class GameManager : MonoBehaviour
         }
     }
 
-/*
-   private void SpawnHero(Hero_type heroType)
-{
-    if (spawnPointIndex >= heropoints.Length)
+
+    
+    private void StageClear()
     {
-        Debug.LogWarning("No more spawn points available.");
-        return;
+        GameManager.instance.game_State = GameManager.Game_State.Ready;
+       ui.showVictoryPanel();
+       CalculateStage(player.world,player.stage);
+       player.clearedmaxWorld = player.world;
+       player.clearedmaxstage = player.stage;
+
+       if(Automode)
+       CallFunctionWithDelay2(TryButton);
+       //보상
+       //스테이지
     }
 
-    // Instantiate the selected hero prefab from the GameManager's array
-    GameObject heroPrefab = heroprefab[(int)heroType];
-    GameObject hero = Instantiate(heroPrefab, heropoints[spawnPointIndex].transform.position, Quaternion.identity);
 
-    hero.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f); // Adjust the scale as needed
-
-    // Move to the next spawn point index (cycling back to the first if all have been used)
-    spawnPointIndex = (spawnPointIndex + 1) % heropoints.Length;
-}
-*/
-
-    public void ReadyToBattle()
+    private void StageFail()
     {
-        castle.gameObject.SetActive(true);
-        readToBattle = true;
+    GameManager.instance.game_State = GameManager.Game_State.Ready;
+       ui.showDefeatPanel();
+       //보상
+       //스테이지
     }
 
-    public void StageStart()
+    public void CheckButton()
     {
+           if(ui.VictoryPanel.activeSelf != false || ui.DefeatPanel.activeSelf != false)
+        {
+            ui.VictoryPanel.SetActive(false);
+            ui.DefeatPanel.SetActive(false);
+        }
+        RemoveAllEnemy();
+          CallFunctionWithDelay(Setui3);
+       // ui.SetUIState(3);
+     
+    }
+
+    public void TryButton()
+    {
+        if(ui.VictoryPanel.activeSelf != false || ui.DefeatPanel.activeSelf != false)
+        {
+            ui.VictoryPanel.SetActive(false);
+            ui.DefeatPanel.SetActive(false);
+        }
+        RemoveAllEnemy();
+         CallFunctionWithDelay(Stagedelay);
+      //  StageStart(player.stage);
+    }
+
+ public void MoveToNextStage()
+    {
+        stageNumber++;
+
+        if (stageNumber > 10)
+        {
+            worldNumber++;
+            stageNumber = 1;
+        }
+    }
+
+
+
+    public void StageStart(int worldNumber,int stageNumber)
+    {
+        ui.SetUIState(1);
+        game_State = GameManager.Game_State.Battle;
         spawnstart = true;
         //Player.instance.castle.currentHealth = Player.instance.castle.maxhp;
         UI_Manager.instance.UpdateHPBar();
-        Debug.Log("StageStart");
+        Debug.Log(worldNumber+"-" + stageNumber + "is start");
 
     }
 
@@ -254,81 +320,67 @@ public class GameManager : MonoBehaviour
        // ui.FinishStageUI();
       //  HideHero();
     }
-      
 
-    /*
-    private void BossSpawn()
+    private IEnumerator DelayedFunction(System.Action action)
     {
-        GameObject boss = Instantiate(enemyprefab[5]);
-        boss.transform.position = startPos.position;
-      //  boss.GetComponent<Enemy>().target = target;
-        boss.transform.parent = enemys;
-        count ++;
-
-
-        aliveenemy.Add(boss);
-        countText.text = string.Format("{0:F0}", aliveenemy.Count);
+        yield return new WaitForSeconds(1f);
+        action?.Invoke();
+        isFunctionRunning = false;
     }
 
-    public void DoSpawn()
+    private IEnumerator DelayedFunction2(System.Action action)
     {
-       
-     
-      
-        GameObject temp = Instantiate(enemyprefab[Random.Range(0,data[level-1].MaxIndex+1)]);
-        temp.transform.position = startPos.position;
-     //   temp.GetComponent<Enemy>().target = target;
-        temp.transform.parent = enemys;
-
-        count++;
-        aliveenemy.Add(temp);
-                countText.text = string.Format("{0:F0}", aliveenemy.Count);
-       // Debug.Log("Count ! til to max = " + (data[level-1].MaxEnemy - count));
-       
-
-    }    
-
-
-    public void OnClickGround(Transform tr)
-    {
-        ground = tr;
-        buttons.SetActive(true);
-
+        yield return new WaitForSeconds(2f);
+        action?.Invoke();
+        isFunctionRunning2 = false;
     }
-
-    public void CreateTower(int index)
+    public void CallFunctionWithDelay(System.Action action)
     {
-        if(ground.childCount == 0 && coin >= towers[index].GetComponent<Tower>().cost)
+        if (!isFunctionRunning)
         {
-                coin = coin - towers[index].GetComponent<Tower>().cost;
-                CoinText.text = string.Format("{0:F0}", coin);
-              GameObject temp = Instantiate(towers[index]);
-                temp.transform.parent = ground;
-                temp.transform.localPosition = Vector3.zero;
-                temp.GetComponent<Tower>().gm = this;
-
+            isFunctionRunning = true;
+            StartCoroutine(DelayedFunction(action));
         }
-     
-
-        buttons.SetActive(false);
-        
     }
 
-
-    public void PauseGame()
+    public void CallFunctionWithDelay2(System.Action action)
     {
-        Time.timeScale=1;
-        isPause = false;
-        Pausebutton.gameObject.SetActive(false);
-
+        if (!isFunctionRunning2)
+        {
+            isFunctionRunning2 = true;
+            StartCoroutine(DelayedFunction2(action));
+        }
     }
 
-    public void GetCoin(int _coin)
+    public void RemoveAllEnemy()
     {
-        coin += _coin;
-        CoinText.text = string.Format("{0:F0}", coin);
+        for (int i = 0; i < aliveenemy.Count; i++)
+        {
+            aliveenemy[i].SetActive(false);
+        }
     }
 
-    */
+    public void Setui3()
+    {
+        ui.SetUIState(3);
+    }
+    public void Stagedelay()
+    {
+           StageStart(player.world,player.stage);
+    }
+
+    public int[] CalculateStage(int world, int stage)
+{
+    Player.instance.stage++;
+
+    if (Player.instance.stage > 10)
+    {
+        Player.instance.world++;
+        Player.instance.stage = 1;
+    }
+
+    int[] result = new int[] { Player.instance.stage, Player.instance.world };
+    return result;
+}
     
 }
