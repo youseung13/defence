@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
         exp = 0;
         gold = 30000;
         diamond = 1000;
+        castlehp = 2500;
     }
    
     // Start is called before the first frame update

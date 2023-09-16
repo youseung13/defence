@@ -5,16 +5,23 @@ using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
+    public enum UIState
+    {
+        MainScene,
+        BattleScene,
+        CharacterScene,
+        HeroBatchScene
+    }
+    public UIState currentState;
     public static UI_Manager instance;
     public Player pl;
-    public Castle castle;
     public Button StageButton;
-    public GameObject MainUI;
-    public GameObject InGameUI;
-    public GameObject CharacterPnael;
-    public GameObject CurrencyPanel;
+    public GameObject[] MainSceneUI;
+    public GameObject[] BattleSceneUI;
+    public GameObject[] CharaterUI;
+    public Button batchButton;
+    public Button batchButton2;
 
-    
     bool isActived = false;
 
     public Text CoinText;
@@ -40,7 +47,9 @@ public class UI_Manager : MonoBehaviour
         }
 
         instance = this; // 현재 인스턴스를 설정합니다.
-        DontDestroyOnLoad(gameObject); // 씬 전환 시에도 인스턴스가 유지되도록 설정합니다.
+      //  DontDestroyOnLoad(gameObject); // 씬 전환 시에도 인스턴스가 유지되도록 설정합니다.
+
+        SetUIState(0);
         
     }
     // Start is called before the first frame update
@@ -48,7 +57,7 @@ public class UI_Manager : MonoBehaviour
     {
         pl = GameManager.instance.player;
         UpdateUI();
-        MainUI.SetActive(true);
+       
     }
 
     // Update is called once per frame
@@ -56,32 +65,82 @@ public class UI_Manager : MonoBehaviour
     {
         
          timeText.text = string.Format("Time : {0:N1}", GameManager.instance.timer);
+         UpdateUI();
     }
 
-    public void FinishStageUI()
+    public void SetallDisable()
     {     
-       
-        MainUI.SetActive(true);
-        InGameUI.SetActive(false);
-        castle.gameObject.SetActive(false);
-        CurrencyPanel.SetActive(true);
-        UpdateUI();
+       for(int i = 0; i < MainSceneUI.Length; i++)
+       {
+           MainSceneUI[i].SetActive(false);
+       }
+
+         for(int i = 0; i < BattleSceneUI.Length; i++)
+         {
+              BattleSceneUI[i].SetActive(false);
+         }
+
+        for(int i = 0; i < CharaterUI.Length; i++)
+        {
+                CharaterUI[i].SetActive(false);
+        }
+     
     }
 
-    public void StageStartUI()
-    {     
-        MainUI.SetActive(false);
-        InGameUI.SetActive(true);
-        castle.gameObject.SetActive(true);
-        CurrencyPanel.SetActive(false);
-        UpdateUI();
+    public void SetUIState(int stateindex)
+    {
+        SetallDisable();
+        currentState = (UIState)stateindex;
+
+        // UI state에 따른 동작 수행
+        switch ((UIState)stateindex)
+        {
+            case UIState.MainScene:
+                for(int i = 0; i < MainSceneUI.Length; i++)
+                {
+                    if(MainSceneUI[i].activeSelf == false)
+                    MainSceneUI[i].SetActive(true);
+                }
+                GameManager.instance.game_State = GameManager.Game_State.None;
+                GameManager.instance.HideHero();
+                break;
+            case UIState.BattleScene:
+                for(int i = 0; i < BattleSceneUI.Length; i++)
+                {
+                    if(BattleSceneUI[i].activeSelf == false)
+                    BattleSceneUI[i].SetActive(true);
+                }
+                GameManager.instance.game_State = GameManager.Game_State.Battle;
+                GameManager.instance.SetBatch();
+                GameManager.instance.StageStart();
+                break;
+            case UIState.CharacterScene:
+                for(int i = 0; i < CharaterUI.Length; i++)
+                {
+                    if(CharaterUI[i].activeSelf == false)
+                    CharaterUI[i].SetActive(true);
+                }
+                MainSceneUI[1].SetActive(true);
+                 GameManager.instance.game_State = GameManager.Game_State.None;
+                break;
+            case UIState.HeroBatchScene:
+                    MainSceneUI[1].SetActive(true);
+                   CharaterUI[1].SetActive(true);
+                   BattleSceneUI[4].SetActive(true);
+                    BattleSceneUI[5].SetActive(true);
+                    GameManager.instance.game_State = GameManager.Game_State.Ready;
+                    GameManager.instance.SetBatch();
+                break;
+            default:
+                break;
+        }
     }
 
-    public void ShowCharacterPnael()
+    public void ShowCharacterPanel()
     {     
-         isActived = !isActived;
-        CharacterPnael.SetActive(isActived);
-        MainUI.SetActive(!isActived);
+
+         Debug.Log(isActived.ToString() + "2");
+        
     }
 
 
@@ -95,7 +154,22 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateHPBar()
     {
-       castle.HPbar.value = (float)castle.currentHealth/ (float)castle.maxhp;
-       castle.HPbartext.text = string.Format("{0:F0}/{1:F0}",(float)castle.currentHealth, (float)castle.maxhp);
+       GameManager.instance.castle.HPbar.value = (float)GameManager.instance.castle.currentHealth/ (float)GameManager.instance.castle.maxhp;
+       GameManager.instance.castle.HPbartext.text = string.Format("{0:F0}/{1:F0}",(float)GameManager.instance.castle.currentHealth, (float)GameManager.instance.castle.maxhp);
+    }
+
+
+    public void batchbuttonon()
+    {
+        batchButton.gameObject.SetActive(true);
+        batchButton2.gameObject.SetActive(true);
+
+    }
+
+    public void batchbuttonoff()
+    {
+        batchButton.gameObject.SetActive(false);
+        batchButton2.gameObject.SetActive(false);
+            
     }
 }

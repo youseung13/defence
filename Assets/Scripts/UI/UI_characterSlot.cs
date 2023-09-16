@@ -14,12 +14,23 @@ public class UI_characterSlot : MonoBehaviour
     public bool isSelected = false;
     public bool canbuy;
     public bool isbuy;
+    public Hero hero;
 
 
     private void Awake()
 {
+   // for (int i = 0; i < Player.instance.heroprefab.Length; i++)
+   // {
+   //     hero[i] =  Player.instance.heroprefab[i].GetComponent<Hero>();
+  //  }
+
+  
 //    icon = GetComponentInChildren<Image>(); // 자식 오브젝트에서 Image 컴포넌트 가져오기
  //   nameText = GetComponentInChildren<Text>(); // 자식 오브젝트에서 Text 컴포넌트 가져오기
+}
+
+private void Update() {
+
 }
 
     public void SetCharacterInfo(Hero hero)
@@ -31,21 +42,6 @@ public class UI_characterSlot : MonoBehaviour
         costtext.text = hero.unlockcost.ToString();
         CheckBuy();
 
-/*
-        // canuse 여부에 따라 슬롯의 색상을 설정
-        if ((Player.instance.herounlock[slotindex]))
-        {
-            // 사용 가능한 경우, 색상을 원래대로 설정
-            icon.color = Color.white;
-            nameText.color = Color.white;
-        }
-        else
-        {
-            // 사용 불가능한 경우, 회색으로 설정
-            icon.color = Color.gray;
-            nameText.color = Color.gray;
-        }
-*/ 
     }
     else
     {
@@ -67,5 +63,11 @@ public class UI_characterSlot : MonoBehaviour
             }
         }
 
+
+    private void OnDisable() {
+        isSelected = false;
+        slotImage.color = Color.white;
+        UI_Manager.instance.batchbuttonoff();
+    }
    
 }

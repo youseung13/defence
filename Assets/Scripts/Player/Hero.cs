@@ -29,15 +29,17 @@ public class Hero : MonoBehaviour
 
 
 
+
     public Sprite sprite;
   public Animator ani;
   public GameObject bullet;
   public PlayerStats hero_stat;
+  public int batchindex;
 
     public GameObject targetEnemy;
     public LayerMask enemyLayer;
       public float delayTimer;
-   public float detectInterval =0.5f;
+   public float detectInterval =1.0f;
     public bool isdetect;
     public bool canAttack;
     bool isRunning = true;
@@ -64,6 +66,7 @@ private void Awake()
     readyState = new HeroReadyState(this, stateMachine, "Ready");
     skillState = new HeroSkillState(this, stateMachine, "Skill");
     attackState = new HeroAttackState(this, stateMachine, "Attack");
+    batchindex = -1;
    
 }
 private void Start()
@@ -101,12 +104,16 @@ private void Start()
         }
 
 
-        if (targetEnemy == null && canAttack)
+    if(GameManager.instance.game_State == GameManager.Game_State.Battle)
+    {
+          if (targetEnemy == null && canAttack)
     {
         hasDetectedEnemy = false;
         StartCoroutine(DetectEnemies());
     }
 
+    }
+  
 
         if (targetEnemy != null && canAttack && Vector2.Distance(transform.position, targetEnemy.transform.position) <= hero_stat.attackRange.GetflaotValue())
         {
@@ -152,7 +159,7 @@ private void Start()
         while (!hasDetectedEnemy &&isRunning)
         
         {
-            Debug.Log("Detecting Enemies");
+          //  Debug.Log("Detecting Enemies");
             // Find all enemies within detection radius
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, hero_stat.attackRange.GetflaotValue()*2, enemyLayer);
            

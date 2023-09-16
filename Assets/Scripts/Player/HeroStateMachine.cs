@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroStateMachine : MonoBehaviour
+public class HeroStateMachine
 {
     public HeroState currentState { get; private set;}//read only
     // Start is called before the first frame update

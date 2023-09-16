@@ -25,14 +25,11 @@ public class WaveManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-      
-         
-    }
+
 
     public void Spawn()
     {
+     
        
         GameObject enemy = GameManager.instance.pool.Get2(Random.Range(0,3));
         enemy.transform.position = Vector2.zero;

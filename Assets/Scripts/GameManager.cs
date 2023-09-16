@@ -7,10 +7,22 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public enum Game_State
+    {
+        None,
+        Ready,
+        Battle,
+        Finish
+    }
+    public Game_State game_State;
     public static GameManager instance;
     public GameObject LevelManager;
+    public UI_CharacterPanel UI_characterPanel;
     public GameObject[] heropoints;
+    public bool[] batchedhero;
+    public GameObject[] heroprefab;
+    public bool selectedhero;
+    public UI_characterSlot selectedSlot;
 
     public GameObject castleprefab;
 
@@ -20,6 +32,9 @@ public class GameManager : MonoBehaviour
     
     private int spawnPointIndex = 0; 
 
+    public int stage;
+    public int clearedmaxstage;
+
 
    // [Header("Info")]
     public List<GameObject> aliveenemy;
@@ -28,7 +43,9 @@ public class GameManager : MonoBehaviour
     public WaveManager waveM;
     public UI_Manager ui;
     public Player player;
+    public Castle castle;
     public GameObject target;
+
 
 
 
@@ -44,6 +61,7 @@ public class GameManager : MonoBehaviour
     public bool initspawn = false;
     public float stageTime = 0;
     public float stageTimeMax = 5;
+    public bool readToBattle;
 
 
     // Start is called before the first frame update
@@ -59,7 +77,7 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this; // 현재 인스턴스를 설정합니다.
-        DontDestroyOnLoad(gameObject); // 씬 전환 시에도 인스턴스가 유지되도록 설정합니다.
+//        DontDestroyOnLoad(gameObject); // 씬 전환 시에도 인스턴스가 유지되도록 설정합니다.
         
     }
     void Start()
@@ -79,13 +97,17 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
 
+      //  if(readToBattle)
+     //  // HeroBatch();
 
         if(spawnstart)
         {
+           
             timer += Time.deltaTime;
             
             time += Time.deltaTime;
 
+           
             if(time >= waveM.spawntimer)
             {
                 waveM.Spawn();
@@ -93,44 +115,102 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(timer >= 90f)
+        if(timer >= 50f)
         {
             spawnstart = false;
               timer = 0;
         }
 
-        if(GameManager.instance.aliveenemy.Count == 0 && !spawnstart)
-          StageFInsih();
+       // if(GameManager.instance.aliveenemy.Count == 0 && !spawnstart)
+        //  StageFInsih();
       
       
     }
-    
-    //function that hero batch to the heropoints when stagestart. check canuse value in heroof player's clihd object by array and if it is true. instantiate hero prefab to the heropoints.
-    public void HeroBatch()
+
+ 
+
+    public void BatchHero()
     {
-        
+   
+        int index = selectedSlot.slotindex;
+        GameObject hero = player.transform.GetChild(index).gameObject;
+
+        if(hero.GetComponent<Hero>().batchindex != -1)
+        {
+            heroreturn();
+
+
+        }
+
         for (int i = 0; i < heropoints.Length; i++)
         {
-         
-            GameObject hero = player.transform.GetChild(i).gameObject;
-            hero.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f); // Adjust the scale as needed
-           // hero.transform.parent = heropoints[i].transform;
-            hero.transform.position = heropoints[i].transform.position;
-            hero.gameObject.SetActive(true);
+            if(heropoints[i].GetComponent<TowerPoints>().isbuild == false)
+            {
+               
+                hero.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f);
+                hero.transform.position = heropoints[i].transform.position;
+                hero.gameObject.SetActive(true);
+                heropoints[i].GetComponent<TowerPoints>().isbuild = true;
+                 heropoints[i].GetComponent<TowerPoints>().pointindex = index;
+                hero.GetComponent<Hero>().batchindex = i;
+                
+                break;
+               
+            }
         }
-   
+
+        UI_characterPanel.DeselecteSlot();
     }
+
+    public void heroreturn()
+    {
+        
+        int index = selectedSlot.slotindex;
+        GameObject hero = player.transform.GetChild(index).gameObject;
+
+        if(hero.GetComponent<Hero>().batchindex == -1)
+        {
+            return;
+        }
+
+        heropoints[hero.GetComponent<Hero>().batchindex].GetComponent<TowerPoints>().isbuild = false;
+        
+        hero.GetComponent<Hero>().batchindex = -1;
+        hero.SetActive(false);
+
+
+    }
+
+
+
 
     public void HideHero()
     {
         
-        for (int i = 0; i < heropoints.Length; i++)
+        for (int i = 0; i < player.transform.childCount; i++)
         {
          
             GameObject hero = player.transform.GetChild(i).gameObject;
             hero.gameObject.SetActive(false);
         }
    
+    }
+
+    public void SetBatch()
+    {
+        Debug.Log("SetBatch");
+         for (int i = 0; i < player.transform.childCount; i++)
+        {
+            
+            GameObject hero = player.transform.GetChild(i).gameObject;
+
+            if(hero.GetComponent<Hero>().batchindex != -1)
+            {
+                Debug.Log("SetBatch2");
+                  hero.gameObject.SetActive(true);
+            }
+          
+        }
     }
 
 /*
@@ -153,23 +233,26 @@ public class GameManager : MonoBehaviour
 }
 */
 
- 
+    public void ReadyToBattle()
+    {
+        castle.gameObject.SetActive(true);
+        readToBattle = true;
+    }
 
     public void StageStart()
     {
         spawnstart = true;
-        HeroBatch();
-        ui.StageStartUI();
         //Player.instance.castle.currentHealth = Player.instance.castle.maxhp;
         UI_Manager.instance.UpdateHPBar();
         Debug.Log("StageStart");
 
     }
 
-    public void StageFInsih()
+    public void SetUI(int index)
     {
-        ui.FinishStageUI();
-        HideHero();
+        UI_Manager.instance.SetUIState(index);
+       // ui.FinishStageUI();
+      //  HideHero();
     }
       
 

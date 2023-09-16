@@ -64,6 +64,10 @@ public class UI_CharacterStatPanel : MonoBehaviour
 
     }
 
+    private void OnDisable() {
+        ClearPanel();
+    }
+
 
 }
 
