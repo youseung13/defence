@@ -16,7 +16,7 @@ MonoBehaviour:
   skillDescription: "\uB2E4\uC218\uC758 \uD654\uC0B4\uC744 \uBC1C\uC0AC\uD558\uC5EC
     \uBAA9\uD45C\uC9C0\uC810 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C  \uC90C"
   skillIcon: {fileID: 21300000, guid: 764d67e6ce02924489784b286ab7653a, type: 3}
-  skillType: 0
+  skillType: 1
   skillUnlocked: 1
   skillLevel: 1
   skillMaxLevel: 5
@@ -25,7 +25,7 @@ MonoBehaviour:
   skillRange: 3
   skillCooldown: 5
   skillDuration: 0
-  targetPosition: {x: -1.5603542, y: -1.5428572, z: 0}
+  targetPosition: {x: -2.7239845, y: 4.086421, z: 0}
   projectilePrefab: {fileID: 7492472250040845951, guid: 4068c90d299a70140b30f026be62db4e,
     type: 3}
   addiotnalEffectPrefab: {fileID: 8704409809268960231, guid: 31d9e4347e7a892478c28cf29c503efc,

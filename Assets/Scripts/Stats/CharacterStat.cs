@@ -103,7 +103,10 @@ public class CharacterStats : MonoBehaviour
             isIgnited = false;
 
         if (chilledTimer < 0)
-            isChilled = false;
+        {
+             isChilled = false;
+        }
+            
 
         if (shockedTimer < 0)
             isShocked = false;
@@ -337,7 +340,7 @@ public class CharacterStats : MonoBehaviour
 
             DecreaseHealthBy(igniteDamage);
 
-            if (currentHealth < 0 && !isDead)
+            if (currentHealth <= 0 && !isDead)
                 Die();
 
 
@@ -357,7 +360,7 @@ public class CharacterStats : MonoBehaviour
   //  GetComponent<Entity>().DamageImpact();
 //    fx.StartCoroutine("FlashFX");
 
-     if(currentHealth <0  && !isDead)
+     if(currentHealth <=0  && !isDead)
         Die();
    }
 

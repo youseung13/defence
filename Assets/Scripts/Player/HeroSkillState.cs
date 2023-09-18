@@ -39,7 +39,22 @@ public class HeroSkillState : HeroState
 
     public void ShotSkill()
     {
-        hero.GetComponent<SkillController>().UseMultiShot(hero.GetComponent<SkillController>().skills[0].targetPosition);
+        Debug.Log("스킬발동");
+
+        if(hero.type == Hero_type.Archer)
+        {
+            if(hero.GetComponent<SkillController>().skillIndex == 0)
+            {
+                hero.GetComponent<SkillController>().UseMultiShot(hero.GetComponent<SkillController>().skills[0].targetPosition);
+            }
+        }
+        else if(hero.type == Hero_type.Magician)
+        {
+            if(hero.GetComponent<SkillController>().skillIndex == 0)
+            {
+                hero.GetComponent<SkillController>().skills[0].projectilePrefab.gameObject.GetComponent<BllizardSkill>().UseBllizardSkill(hero.GetComponent<SkillController>().skills[0].targetPosition);
+            }
+        }
     }
 
 

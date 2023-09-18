@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184a4ab81156c82478d734f219c36cea, type: 3}
+  m_Name: Bllizard
+  m_EditorClassIdentifier: 
+  skillName: "\uBE14\uB9AC\uC790\uB4DC"
+  skillDescription: 
+  skillIcon: {fileID: 21300000, guid: fed4337445ffcb6438005f1a27d01035, type: 3}
+  skillType: 1
+  skillUnlocked: 1
+  skillLevel: 1
+  skillMaxLevel: 5
+  numArrows: 0
+  baseDamage: 5
+  skillRange: 4
+  skillCooldown: 10
+  skillDuration: 3
+  targetPosition: {x: 0, y: 0, z: 0}
+  projectilePrefab: {fileID: 5628018382386726784, guid: e6f33864c1d9f954cb3e1521e41cabc9,
+    type: 3}
+  addiotnalEffectPrefab: {fileID: 0}

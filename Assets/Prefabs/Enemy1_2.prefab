@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5512313677686903033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151881480453374113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a216dbc04c17b843acf996d181bb74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &231819424831940160
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +106,7 @@ MonoBehaviour:
   defaulMoveSpeed: 0
   target: {fileID: 0}
   bulletPrefab: {fileID: 0}
-  attackdistance: 2
+  attackdistance: 3
   attackCooldown: 2
   lastTimeAttacked: 0
   dis: {x: 0, y: 0, z: 0}
@@ -114,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 9d717c0fdb015914fb9e23e33dfc8aad, type: 2}
   chillColor:
-  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 0}
-  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 0}
+  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 1}
+  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 1}
   ignitedColor:
   - {r: 1, g: 0.27450982, b: 0.27450982, a: 0}
   - {r: 0.94509804, g: 0.78039217, b: 0.78039217, a: 0}
@@ -397,11 +409,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit010
       objectReference: {fileID: 0}
+    - target: {fileID: 8700596662052359364, guid: aa51229d1bb7bb4409dd2edba544b851,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189034929037057154, guid: aa51229d1bb7bb4409dd2edba544b851,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa51229d1bb7bb4409dd2edba544b851, type: 3}
 --- !u!224 &4857978442868706439 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5406922599110063117, guid: aa51229d1bb7bb4409dd2edba544b851,
+    type: 3}
+  m_PrefabInstance: {fileID: 604114377495115914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &151881480453374113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 754821009566021675, guid: aa51229d1bb7bb4409dd2edba544b851,
     type: 3}
   m_PrefabInstance: {fileID: 604114377495115914}
   m_PrefabAsset: {fileID: 0}

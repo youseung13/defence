@@ -35,7 +35,7 @@ public class Enemy_Melee : Enemy
     protected override void OnEnable() 
     {
         base.OnEnable();
-         Debug.Log("Onenable");
+      //   Debug.Log("Onenable");
         gameObject.GetComponent<CapsuleCollider2D>().enabled=true;
         gameObject.GetComponent<EnemyStats>().Initialize();
         gameObject.GetComponent<EnemyStats>().SetHPbar();

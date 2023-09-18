@@ -95,7 +95,7 @@ MonoBehaviour:
   defaulMoveSpeed: 0
   target: {fileID: 0}
   bulletPrefab: {fileID: 0}
-  attackdistance: 2.5
+  attackdistance: 3
   attackCooldown: 2
   lastTimeAttacked: 0
   dis: {x: 0, y: 0, z: 0}
@@ -115,8 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 9d717c0fdb015914fb9e23e33dfc8aad, type: 2}
   chillColor:
-  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 0}
-  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 0}
+  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 1}
+  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 1}
   ignitedColor:
   - {r: 1, g: 0.27450982, b: 0.27450982, a: 0}
   - {r: 0.94509804, g: 0.78039217, b: 0.78039217, a: 0}
@@ -315,6 +315,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 231819425011305721}
     m_Modifications:
+    - target: {fileID: 1089380061732755111, guid: c485261cbff92ad4c8b0a2d28d79de6f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
+      objectReference: {fileID: 0}
     - target: {fileID: 1425235205871232162, guid: c485261cbff92ad4c8b0a2d28d79de6f,
         type: 3}
       propertyPath: m_Controller
@@ -444,6 +449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Unit000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700596662052359364, guid: c485261cbff92ad4c8b0a2d28d79de6f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c485261cbff92ad4c8b0a2d28d79de6f, type: 3}

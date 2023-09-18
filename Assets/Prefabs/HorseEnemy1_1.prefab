@@ -95,7 +95,7 @@ MonoBehaviour:
   defaulMoveSpeed: 0
   target: {fileID: 0}
   bulletPrefab: {fileID: 0}
-  attackdistance: 2.85
+  attackdistance: 3
   attackCooldown: 1.7
   lastTimeAttacked: 0
   dis: {x: 0, y: 0, z: 0}
@@ -316,6 +316,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 231819425011305721}
     m_Modifications:
+    - target: {fileID: 644253082568548990, guid: 087dda217a8aa5a4ea9dca9d3e5887e0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
+      objectReference: {fileID: 0}
     - target: {fileID: 2240198408068719384, guid: 087dda217a8aa5a4ea9dca9d3e5887e0,
         type: 3}
       propertyPath: m_Size.x
@@ -450,6 +455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Unit011
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700596662052359364, guid: 087dda217a8aa5a4ea9dca9d3e5887e0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 087dda217a8aa5a4ea9dca9d3e5887e0, type: 3}

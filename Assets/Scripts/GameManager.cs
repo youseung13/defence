@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -93,6 +94,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+           SceneManager.LoadScene("Lobby");
+        }
+
         if(Input.GetKeyDown(KeyCode.O))
         Time.timeScale = Time.timeScale*2;
 
@@ -373,7 +379,7 @@ if(game_State == GameManager.Game_State.Battle)
 {
     Player.instance.stage++;
 
-    if (Player.instance.stage > 10)
+    if (Player.instance.stage > 20)
     {
         Player.instance.world++;
         Player.instance.stage = 1;

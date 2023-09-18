@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EntityFX : MonoBehaviour
 {
-      private SpriteRenderer sr;
+      private SpriteRenderer[] sr;
+
+      private SpriteRenderer shadowRenderer; //그림자는 특정한 색이 있어서 제외 해야한다
 
       [Header("Flash FX")]
       [SerializeField] private Material hitMat;
-      private Material originalMat;
+      private Material[] originalMat;
 
       [Header("Ailment colors")]
       [SerializeField] private Color[] chillColor;
@@ -17,48 +19,92 @@ public class EntityFX : MonoBehaviour
 
       private void Start() {
          
-         sr = GetComponentInChildren<SpriteRenderer>();
-         originalMat = sr.material;
+         //그림자는 특정한 색이 있어서 제외 해야한다
+         sr = GetComponentsInChildren<SpriteRenderer>();
+         originalMat = new Material[sr.Length];
+
+          foreach (SpriteRenderer renderer in sr)
+        {
+            if (renderer.gameObject.CompareTag("Shadow")) // "Shadow" 오브젝트 태그가 적용되어 있다고 가정합니다.
+            {
+                shadowRenderer = renderer;
+            }
+        }
       }
 
          
       public void MakeTransprent(bool _transprent)
       {
          if(_transprent)
-            sr.color = Color.clear;
+         {
+            foreach(SpriteRenderer _sr in sr)
+            {
+               _sr.color = new Color(1,1,1,.5f);
+            }
+         }
          else
-            sr.color = Color.white;
+         {
+            foreach(SpriteRenderer _sr in sr)
+            {
+               _sr.color = Color.white;
+            }
+         }
+         
       }
 
 
       private IEnumerator FlashFX()
       {
-         sr.material = hitMat;
-         Color currentColor = sr.color;
-
-         sr.color = Color.white;
+         foreach(SpriteRenderer _sr in sr)
+         {
+            _sr.material = hitMat;
+         }
+         foreach(SpriteRenderer _sr in sr)
+         {
+          Color currentColor = _sr.color;
+         }
+        
+         foreach(SpriteRenderer _sr in sr)
+         {
+            _sr.color = Color.white;
+         }
+        
 
          yield return new WaitForSeconds(.2f);
 
-         sr.color = currentColor;
-         sr.material = originalMat;
-         
+         foreach(SpriteRenderer _sr in sr)
+         {
+            _sr.color = Color.white;
+         }
+         foreach(SpriteRenderer _sr in sr)
+         {
+            _sr.material = originalMat[0];
+         }
          
       }
 
       private void RedColorBlink()
       {
-         if(sr.color != Color.white)
-         sr.color = Color.white;
-         else
-         sr.color = Color.red;
+         foreach(SpriteRenderer _sr in sr)
+         {
+            if(_sr.color != Color.white)
+            _sr.color = Color.white;
+            else
+            _sr.color = Color.red;
+         }
 
       }
 
       private void CancelColorChange()
       {
          CancelInvoke();
-         sr.color = Color.white;
+         
+         foreach(SpriteRenderer _sr in sr)
+         {
+            _sr.color = Color.white;
+         }
+
+           shadowRenderer.color = new Color(0,0,0,143/255f);
       }
 
 
@@ -84,26 +130,37 @@ public class EntityFX : MonoBehaviour
 
       private void IgniteColorFx()
       {
-         if(sr.color != ignitedColor[0])
-            sr.color = ignitedColor[0];
-         else
-            sr.color = ignitedColor[1];
+         foreach(SpriteRenderer _sr in sr)
+         {
+            if(_sr.color != ignitedColor[0])
+            _sr.color = ignitedColor[0];
+            else
+            _sr.color = ignitedColor[1];
+         }
+
       }
 
       private void ChillColorFx()
       {
-         if(sr.color != chillColor[0])
-            sr.color = chillColor[0];
-         else
-            sr.color = chillColor[1];
+         foreach(SpriteRenderer _sr in sr)
+         {
+            if(_sr.color != chillColor[0])
+            _sr.color = chillColor[0];
+            else
+            _sr.color = chillColor[1];
+         }
       }
 
       private void ShockColorFx()
       {
-         if(sr.color != shockColor[0])
-            sr.color = shockColor[0];
-         else
-            sr.color = shockColor[1];
+         foreach(SpriteRenderer _sr in sr)
+         {
+            if(_sr.color != shockColor[0])
+            _sr.color = shockColor[0];
+            else
+            _sr.color = shockColor[1];
+         }
+       
       }
 
 

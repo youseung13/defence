@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 401301072063824107}
   - component: {fileID: 401301072063824106}
-  - component: {fileID: 401301072063824104}
   - component: {fileID: 401301072063824118}
   - component: {fileID: 401301072063824105}
+  - component: {fileID: 1987378183899709056}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -85,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &401301072063824104
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401301072063824109}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.1125473, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.9444444, y: 16.222221}
-    newSize: {x: 0.53, y: 2.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.71935004, y: 16.222221}
-  m_EdgeRadius: 0
 --- !u!50 &401301072063824118
 Rigidbody2D:
   serializedVersion: 4
@@ -144,11 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c902d3ed6f804f1478d14a968551d7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
-    baseValue: 0
-    baseFloatValue: 0
-    modifiers: 
-    floatmodifiers: []
   strength:
     baseValue: 0
     baseFloatValue: 0
@@ -244,3 +213,29 @@ MonoBehaviour:
   maxhp: 0
   HPbar: {fileID: 0}
   HPbartext: {fileID: 0}
+--- !u!61 &1987378183899709056
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401301072063824109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1273277, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.9444444, y: 16.222221}
+    newSize: {x: 0.53, y: 2.92}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8321887, y: 16.222221}
+  m_EdgeRadius: 0

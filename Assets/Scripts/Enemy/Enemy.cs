@@ -392,6 +392,8 @@ public class Enemy : Entity
         
     }
 
+    
+
  
 /*
    public virtual Collider2D IsPlayerDetected()
@@ -425,15 +427,6 @@ public class Enemy : Entity
     //    Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackdistance * facingDir, transform.position.y));          
         
    // }
-
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-      //  if(Vector2.Distance(player.transform.position, transform.position) > detectionRadius )
-     //   {
-          //  StartCoroutine("hitAggro", 4f);
-         //   Debug.Log("aggroget");
-       // }
-    }
 
     // =>
 }

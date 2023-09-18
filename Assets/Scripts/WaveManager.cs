@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//handle these spawn function with object pooling
 public class WaveManager : MonoBehaviour
 {   
     public enum SpawnType
@@ -14,11 +15,13 @@ public class WaveManager : MonoBehaviour
 
     }
 
+    private bool isInitialRandomSpawn = true;
+    private bool isInitialRectSpawn = true;
+    private bool isInitialVerticalSpawn = true;
+
     public SpawnData[] spawnDataArray;
 
-
     public Transform[] spawnPoint;
-     public SpawnData[] spawndata;
      public Vector2  startY;
     public Vector2  endY;
 
@@ -26,10 +29,9 @@ public class WaveManager : MonoBehaviour
     public float timer2;
     public float timer3;
 
-    public float[] time;
+    public bool spawndone;
 
-    public float spawntimer = 2f;
-
+    // implement this with object pooling, from data i can get what to objectpool and how many. write a script for objectpooling
     private void Awake()
      {
           spawnPoint = GetComponentsInChildren<Transform>();    
@@ -43,14 +45,21 @@ public class WaveManager : MonoBehaviour
         
     }
 
-    private void Update() {
-        
-   
+    private void Update() 
+    {
+        if(GameManager.instance.game_State != GameManager.Game_State.Battle && spawndone == true)
+        {
+            spawndone = false;
+            ResetSpawnState();
+        }
+
          if(GameManager.instance.spawnstart == true)
         {
             //Debug.Log("스폰 시작");
           
             SpawnData data = GetSpawnData(Player.instance.world,Player.instance.stage);
+
+            if(data!=null)
             Spawn(data);
 
                     
@@ -78,12 +87,35 @@ public class WaveManager : MonoBehaviour
     }
     public void Spawn(SpawnData data)
     {
+        spawndone = true;
 
         if (data == null)
         {
             Debug.LogError("스폰 데이터가 없습니다.");
             return;
         }
+
+           // 초기 스폰 (딜레이 없이 1번 호출)
+    if (isInitialRandomSpawn)
+    {
+        SpawnRandomly(data);
+        isInitialRandomSpawn = false;
+        return;
+    }
+
+    if (isInitialRectSpawn)
+    {
+        SpawnShapeRect(data);
+        isInitialRectSpawn = false;
+        return;
+    }
+
+    if (isInitialVerticalSpawn)
+    {
+        SpawnShapeVirtical(data);
+        isInitialVerticalSpawn = false;
+        return;
+    }
 
 
 
@@ -119,21 +151,29 @@ public class WaveManager : MonoBehaviour
 
     }
 
-    public void SpawnRandomly(SpawnData data)
+        public void SpawnRandomly(SpawnData data)
     {
         Debug.Log("스폰 랜덤");
 
-        for (int i = 0; i < data.enemycount[0]; i++)
+        StartCoroutine(SpawnRandomWithDelay(data.enemyprefab[0], data.enemycount[0]));
+    }
+
+    private IEnumerator SpawnRandomWithDelay(GameObject prefab, int count)
+    {
+        float spawnInterval = 1.2f; // 유닛 사이의 딜레이를 조절할 값
+
+        for (int i = 0; i < count; i++)
         {
-            GameObject enemy = Instantiate(data.enemyprefab[0], transform);
+            GameObject enemy = Instantiate(prefab, transform);
             enemy.transform.position = Vector2.zero;
-            enemy.transform.position = new Vector2 (spawnPoint[1].transform.position.x, Random.Range(endY.y,startY.y));
+            enemy.transform.position = new Vector2(spawnPoint[1].transform.position.x, Random.Range(endY.y, startY.y));
             GameManager.instance.count++;
             GameManager.instance.aliveenemy.Add(enemy);
             GameManager.instance.ui.countText.text = string.Format("{0:F0}", GameManager.instance.aliveenemy.Count);
+
+            yield return new WaitForSeconds(spawnInterval); // 유닛 사이의 딜레이 적용
         }
     }
-
     public void SpawnShapeRect(SpawnData data)
     {
         Debug.Log("스폰 사각형");
@@ -142,37 +182,68 @@ public class WaveManager : MonoBehaviour
         float interval = 1f;
         float startX = -interval * (row - 1) / 2f;
         float startY = interval * (col - 1) / 2f;
-        for (int i = 0; i < data.enemycount[1]; i++)
+        
+        StartCoroutine(SpawnRectWithDelay(data.enemyprefab[1], row, col, interval));
+    }
+
+    private IEnumerator SpawnRectWithDelay(GameObject prefab, int row, int col, float interval)
+    {
+        float spawnInterval = 0.1f; // 유닛 사이의 딜레이를 조절할 값
+
+        for (int i = 0; i < row * col; i++)
         {
-            GameObject enemy = Instantiate(data.enemyprefab[1], transform);
+            GameObject enemy = Instantiate(prefab, transform);
             enemy.transform.position = Vector2.zero;
             enemy.transform.position = new Vector2(spawnPoint[1].transform.position.x + interval * (i % row), spawnPoint[1].transform.position.y - interval * (i / row));
             GameManager.instance.count++;
             GameManager.instance.aliveenemy.Add(enemy);
             GameManager.instance.ui.countText.text = string.Format("{0:F0}", GameManager.instance.aliveenemy.Count);
-        }
 
-        
+            yield return new WaitForSeconds(spawnInterval); // 유닛 사이의 딜레이 적용
+        }
     }
 
-    public void SpawnShapeVirtical(SpawnData data)//don start form endposition.y
+    public void SpawnShapeVirtical(SpawnData data)
     {
         Debug.Log("스폰 세로");
-
         float interval = 1f;
         float startY = interval * (data.enemycount[2] - 1) / 2f;
-        for (int i = 0; i < data.enemycount[2]; i++)
+
+        StartCoroutine(SpawnVerticalWithDelay(data.enemyprefab[2], data.enemycount[2], interval, startY));
+    }
+
+    private IEnumerator SpawnVerticalWithDelay(GameObject prefab, int count, float interval, float startY)
+    {
+        float spawnInterval = 0.3f; // 유닛 사이의 딜레이를 조절할 값
+
+        for (int i = 0; i < count; i++)
         {
-            GameObject enemy = Instantiate(data.enemyprefab[2], transform);
+            GameObject enemy = Instantiate(prefab, transform);
             enemy.transform.position = Vector2.zero;
             enemy.transform.position = new Vector2(spawnPoint[1].transform.position.x, startY - interval * i);
             GameManager.instance.count++;
             GameManager.instance.aliveenemy.Add(enemy);
             GameManager.instance.ui.countText.text = string.Format("{0:F0}", GameManager.instance.aliveenemy.Count);
+
+            yield return new WaitForSeconds(spawnInterval); // 유닛 사이의 딜레이 적용
         }
     }
 
-
+    public void ResetSpawnState()
+    {
+    // 스테이지가 끝날 때 초기화할 작업 수행
+    timer1 = 0f;
+    timer2 = 0f;
+    timer3 = 0f;
+    
+    // 초기 딜레이 없는 리젠 리셋
+        isInitialRandomSpawn = true;
+        isInitialRectSpawn = true;
+        isInitialVerticalSpawn = true;
+        
+        // WaveManager 초기화
+    
+    }
 
     
 }

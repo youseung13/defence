@@ -28,6 +28,8 @@ public class UI_Manager : MonoBehaviour
 
     public GameObject StartButton;
 
+    public FadeScreen fadeScreen;
+
     bool isActived = false;
 
     public Text CoinText;
@@ -41,6 +43,9 @@ public class UI_Manager : MonoBehaviour
     public Text LifeText;
 
     public Text timeText;
+    public bool isTransitioning;
+
+
     
        private void Awake() 
     {
@@ -101,11 +106,12 @@ public class UI_Manager : MonoBehaviour
     {
         SetallDisable();
         currentState = (UIState)stateindex;
-
+   
         // UI state에 따른 동작 수행
         switch ((UIState)stateindex)
         {
             case UIState.MainScene:
+                fadeScreen.Fade();
                 for(int i = 0; i < MainSceneUI.Length; i++)
                 {
                     if(MainSceneUI[i].activeSelf == false)
@@ -123,6 +129,7 @@ public class UI_Manager : MonoBehaviour
                 GameManager.instance.SetBatch();
                 break;
             case UIState.CharacterScene:
+                
                 for(int i = 0; i < CharaterUI.Length; i++)
                 {
                     if(CharaterUI[i].activeSelf == false)
@@ -132,6 +139,7 @@ public class UI_Manager : MonoBehaviour
                  GameManager.instance.game_State = GameManager.Game_State.None;
                 break;
             case UIState.HeroBatchScene:
+                    fadeScreen.Fade();
                     MainSceneUI[1].SetActive(true);
                    CharaterUI[1].SetActive(true);
                    BattleSceneUI[4].SetActive(true);

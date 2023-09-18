@@ -12,13 +12,16 @@ GameObject:
   - component: {fileID: 7800315877606292271}
   - component: {fileID: 364275474071222411}
   - component: {fileID: 6854804855342669644}
+  - component: {fileID: 88537317}
+  - component: {fileID: 8995543252013371725}
+  - component: {fileID: 1033118021739084144}
   m_Layer: 0
   m_Name: pl_magician
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5677225258550470026
 Transform:
   m_ObjectHideFlags: 0
@@ -174,10 +177,12 @@ MonoBehaviour:
   type: 1
   canuse: 0
   unlockcost: 0
+  skillshot: 0
   sprite: {fileID: 8140494928851016559, guid: fb24f76e9108537458491f102ddcaecc, type: 3}
   ani: {fileID: 0}
   bullet: {fileID: 5745422517375943945, guid: daf1b126edd25d54e9348c76614fc217, type: 3}
   hero_stat: {fileID: 0}
+  batchindex: 0
   targetEnemy: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -186,6 +191,85 @@ MonoBehaviour:
   detectInterval: 0
   isdetect: 0
   canAttack: 0
+--- !u!114 &88537317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677225258550470031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a05a1852f36b749888111aa2c52029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  herodata: {fileID: 11400000, guid: 32128c470938542468c7827f801b0c4c, type: 2}
+  skills: []
+  level: 0
+  power: 0
+  levelManager: {fileID: 0}
+  type: 1
+  canuse: 0
+  unlockcost: 0
+  skillshot: 0
+  sprite: {fileID: 8140494928851016559, guid: fb24f76e9108537458491f102ddcaecc, type: 3}
+  ani: {fileID: 0}
+  bullet: {fileID: 5745422517375943945, guid: daf1b126edd25d54e9348c76614fc217, type: 3}
+  hero_stat: {fileID: 0}
+  batchindex: 0
+  targetEnemy: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  delayTimer: 0
+  detectInterval: 0
+  isdetect: 0
+  canAttack: 0
+--- !u!114 &8995543252013371725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677225258550470031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfb6a52ebf3d1448a1ba645fec4f626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bllizardobejct: {fileID: 5628018382386726784, guid: e6f33864c1d9f954cb3e1521e41cabc9,
+    type: 3}
+  blizzardParticle: {fileID: 0}
+  target: {fileID: 0}
+--- !u!114 &1033118021739084144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677225258550470031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677e28f4a86cec5418aaec88dab217f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
+  hero: {fileID: 0}
+  skillIndex: -1
+  targetArea: {fileID: 0}
+--- !u!114 &1528859182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644862992343736943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7faf1e92efbe7814bb2fa6274c98f556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4177632182821444639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,12 +391,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b289f44d5a81ce041977acbb51205e00, type: 2}
+      objectReference: {fileID: 9100000, guid: 2a94b939be2335e448375b666873c6bd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585d5aace23ac0e429fb3a1a105d8c5e, type: 3}
 --- !u!224 &2309957262640777306 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1871091379967775813, guid: 585d5aace23ac0e429fb3a1a105d8c5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4177632182821444639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7644862992343736943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6044371888164208240, guid: 585d5aace23ac0e429fb3a1a105d8c5e,
     type: 3}
   m_PrefabInstance: {fileID: 4177632182821444639}
   m_PrefabAsset: {fileID: 0}

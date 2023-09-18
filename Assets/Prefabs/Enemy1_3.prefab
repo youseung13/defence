@@ -82,8 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 9d717c0fdb015914fb9e23e33dfc8aad, type: 2}
   chillColor:
-  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 0}
-  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 0}
+  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 1}
+  - {r: 0.5294118, g: 0.7176471, b: 0.972549, a: 1}
   ignitedColor:
   - {r: 1, g: 0.27450982, b: 0.27450982, a: 0}
   - {r: 0.94509804, g: 0.78039217, b: 0.78039217, a: 0}
@@ -295,6 +295,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 324da171393fe4f48bab4981e5dce27b, type: 2}
+    - target: {fileID: 1963280451840936011, guid: f6c1b45d2921f9e4daa9d166d34f08f3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
+      objectReference: {fileID: 0}
     - target: {fileID: 2454635571872432754, guid: f6c1b45d2921f9e4daa9d166d34f08f3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -399,6 +404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024191753378155154, guid: f6c1b45d2921f9e4daa9d166d34f08f3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shadow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c1b45d2921f9e4daa9d166d34f08f3, type: 3}

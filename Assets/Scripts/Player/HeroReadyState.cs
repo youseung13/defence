@@ -30,8 +30,12 @@ public class HeroReadyState : HeroState
     {
        base.Update();
 
-       if(triggerCalled && hero.skillshot == true)
-        stateMachine.ChangeState(hero.skillState);  
+       if(hero.skillshot == true)
+       {
+         stateMachine.ChangeState(hero.skillState);  
+         Debug.Log("스킬");
+       }
+       
        
     }
 
